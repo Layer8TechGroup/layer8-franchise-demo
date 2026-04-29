@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is This? — Layer8 Franchise Evaluation Suite</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+         font-size:14px;line-height:1.7;color:#1F2937;background:#F3F4F6;margin:0;padding:0;}
+    .page{max-width:1000px;margin:0 auto;background:white;}
+    .header-bar{background:#1E2761;color:white;padding:20px 32px;display:flex;
+                justify-content:space-between;align-items:center;
+                -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .brand{font-size:20px;font-weight:700;display:block;}
+    .sub{font-size:13px;opacity:.8;margin-top:2px;display:block;}
+    nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .nav-link{color:rgba(255,255,255,0.75);font-size:12px;text-decoration:none;
+              padding:5px 11px;border:1px solid rgba(255,255,255,0.3);border-radius:4px;}
+    .nav-link.active{background:rgba(255,255,255,0.15);color:white;
+                     border-color:rgba(255,255,255,0.6);}
+    .nav-ext{color:#028090 !important;border-color:rgba(2,128,144,.5) !important;}
+    .hero{background:linear-gradient(135deg,#1E2761 0%,#0f4c6e 100%);
+          color:white;padding:44px 40px 40px;
+          -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .hero-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+                  color:#7db8d8;margin:0 0 12px;}
+    .hero h1{font-size:30px;font-weight:700;margin:0 0 12px;line-height:1.25;}
+    .hero-sub{font-size:16px;color:rgba(255,255,255,.8);margin:0 0 24px;max-width:580px;}
+    .hero-stat-row{display:flex;gap:32px;flex-wrap:wrap;}
+    .hero-stat{text-align:center;}
+    .hero-stat-val{font-size:28px;font-weight:800;color:#C9A84C;}
+    .hero-stat-lbl{font-size:11px;color:rgba(255,255,255,.65);text-transform:uppercase;
+                   letter-spacing:.05em;margin-top:2px;}
+    .content{padding:36px 40px;}
+    h2{font-size:17px;font-weight:700;color:#1E2761;margin:36px 0 10px;
+       border-bottom:2px solid #E5E7EB;padding-bottom:6px;}
+    h2:first-of-type{margin-top:0;}
+    p{font-size:14px;color:#374151;max-width:800px;line-height:1.8;margin:0 0 12px;}
+    .problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0 28px;}
+    .problem-card{border:1px solid #FDE68A;background:#FFFBEB;border-radius:6px;
+                  padding:16px 18px;
+                  -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .problem-card-icon{font-size:20px;margin:0 0 8px;}
+    .problem-card-title{font-size:13px;font-weight:700;color:#92400E;margin:0 0 6px;}
+    .problem-card-desc{font-size:12px;color:#78350F;line-height:1.7;margin:0;}
+    .product-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0 28px;}
+    .product-card{border:1px solid #E5E7EB;border-radius:6px;padding:18px;background:white;}
+    .product-tag{font-size:20px;font-weight:800;color:#C9A84C;margin:0 0 6px;}
+    .product-title{font-size:13px;font-weight:700;color:#1E2761;margin:0 0 6px;}
+    .product-desc{font-size:12px;color:#6B7280;line-height:1.7;margin:0;}
+    .product-coming{font-size:11px;color:#9CA3AF;font-style:italic;margin-top:6px;}
+    .steps{display:flex;gap:0;margin:16px 0 28px;border:1px solid #E5E7EB;
+           border-radius:6px;overflow:hidden;}
+    .step{flex:1;padding:18px 16px;border-right:1px solid #E5E7EB;}
+    .step:last-child{border-right:none;}
+    .step-num{font-size:22px;font-weight:800;color:#C9A84C;margin:0 0 6px;}
+    .step-title{font-size:13px;font-weight:700;color:#1E2761;margin:0 0 4px;}
+    .step-desc{font-size:12px;color:#6B7280;line-height:1.6;margin:0;}
+    .deliverable-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 28px;}
+    .deliverable{background:#F0FDFA;border:1px solid #99F6E4;border-radius:6px;
+                 padding:14px 16px;
+                 -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .deliverable-title{font-size:13px;font-weight:700;color:#0f766e;margin:0 0 4px;}
+    .deliverable-desc{font-size:12px;color:#134E4A;line-height:1.6;margin:0;}
+    .consultant-box{background:#1E2761;color:white;padding:24px 28px;border-radius:6px;
+                    margin:28px 0;
+                    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .consultant-box h3{font-size:15px;font-weight:700;color:#C9A84C;margin:0 0 10px;}
+    .consultant-box p{color:rgba(255,255,255,.85);max-width:none;margin:0 0 8px;}
+    .consultant-box ul{margin:10px 0 0;padding-left:18px;}
+    .consultant-box li{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:6px;line-height:1.6;}
+    .demo-cta{border:2px solid #028090;border-radius:6px;padding:22px 28px;margin:28px 0;
+              text-align:center;}
+    .demo-cta p{color:#374151;margin:0 0 14px;font-size:14px;}
+    .demo-btn{display:inline-block;background:#028090;color:white;
+              font-weight:700;font-size:13px;padding:10px 24px;border-radius:4px;
+              text-decoration:none;margin:0 6px;
+              -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .demo-btn.secondary{background:white;color:#028090;border:1px solid #028090;}
+    .xlink-row{display:flex;gap:14px;flex-wrap:wrap;margin:24px 0 0;}
+    .xlink-card{border:1px solid #E5E7EB;border-radius:6px;padding:14px 18px;flex:1;
+                min-width:200px;}
+    .xlink-card-title{font-size:12px;font-weight:700;color:#1E2761;margin:0 0 4px;}
+    .xlink-card-desc{font-size:12px;color:#6B7280;margin:0 0 8px;line-height:1.6;}
+    .xlink-card a{font-size:12px;font-weight:700;color:#028090;text-decoration:none;}
+    .footer{text-align:center;font-size:12px;color:#9CA3AF;padding:16px 32px;
+            border-top:1px solid #E5E7EB;}
+    @media(max-width:680px){
+      .problem-grid,.product-row,.steps,.deliverable-list{grid-template-columns:1fr;flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div class="header-bar">
+  <div>
+    <span class="brand">Layer8 Tech Group</span>
+    <span class="sub">Franchise Evaluation Suite &mdash; Product Overview</span>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-link">Portfolio</a>
+    <a href="about_portfolio.html" class="nav-link">About</a>
+    <a href="franchise_guide.html" class="nav-link">Methodology</a>
+    <a href="franchise_explainer.html" class="nav-link active">What Is This?</a>
+    <a href="https://demo.layer8techgroup.com" class="nav-link nav-ext" target="_blank">ER Demo &#8599;</a>
+    <a href="https://dd.layer8techgroup.com" class="nav-link nav-ext" target="_blank">DD Demo &#8599;</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Layer8 Franchise Evaluation Suite</div>
+  <h1>Know What You&rsquo;re Buying Into</h1>
+  <p class="hero-sub">AI-powered FDD analysis for franchise consultants and prospective franchisees</p>
+  <div class="hero-stat-row">
+    <div class="hero-stat"><div class="hero-stat-val">8</div><div class="hero-stat-lbl">Evaluation Domains</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">40</div><div class="hero-stat-lbl">Scored Criteria</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">3</div><div class="hero-stat-lbl">Products</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">2&times;</div><div class="hero-stat-lbl">Item 19 Weight</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <h2>1. The Problem</h2>
+
+  <p>
+    Most franchise buyers make a $500,000+ decision based on brand recognition and gut feel.
+    The Layer8 Franchise Evaluation Suite changes that.
+  </p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-card-icon">&#128196;</div>
+      <div class="problem-card-title">FDD Complexity</div>
+      <p class="problem-card-desc">A standard FDD runs 200&ndash;400 pages across 23 items. Most buyers &mdash; and many consultants &mdash; don&rsquo;t read it cover to cover. Layer8 does.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-card-icon">&#10067;</div>
+      <div class="problem-card-title">The Item 19 Gap</div>
+      <p class="problem-card-desc">Item 19 &mdash; the only section with revenue and profitability data &mdash; is optional. Many franchisors don&rsquo;t provide it, leaving buyers to guess at unit economics.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-card-icon">&#9200;</div>
+      <div class="problem-card-title">Consultant Time Burden</div>
+      <p class="problem-card-desc">Comparing multiple opportunities across FDD quality, unit economics, and franchisor health takes hours of manual research. Layer8 delivers it in a structured report.</p>
+    </div>
+  </div>
+
+  <h2>2. Three Products</h2>
+
+  <div class="product-row">
+    <div class="product-card">
+      <div class="product-tag">FOE</div>
+      <div class="product-title">Franchise Opportunity Evaluation</div>
+      <p class="product-desc">Deep single-franchise score across 8 domains. Covers FDD quality, unit economics, territorial rights, franchisee satisfaction, and more. Includes a Layer8 recommendation.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-tag">FCR</div>
+      <div class="product-title">Franchise Comparison Report</div>
+      <p class="product-desc">Side-by-side evaluation of two franchise opportunities. Domain-by-domain winner. Direct Item 19 comparison. Investment and payback analysis. Clear recommendation on which to pursue.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-tag" style="color:#9CA3AF;">FRA</div>
+      <div class="product-title">Franchisee Readiness Assessment</div>
+      <p class="product-desc">Evaluates the buyer &mdash; not the franchise. Capital position, experience fit, lifestyle requirements, and risk tolerance scored against the opportunity.</p>
+      <p class="product-coming">Coming soon</p>
+    </div>
+  </div>
+
+  <h2>3. How It Works</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Structured Intake</div>
+      <p class="step-desc">Client submits FDD data via the Layer8 intake form. Key items are mapped to our standardized FDD data schema.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">AI-Powered Analysis</div>
+      <p class="step-desc">The Layer8 FDD Parser and Franchise Engine score all 40 criteria across 8 weighted domains using rubric-based evaluation.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Structured Report</div>
+      <p class="step-desc">A branded HTML report is generated with scores, labels, investment summary, Item 19 status, key strengths, and a clear recommendation.</p>
+    </div>
+  </div>
+
+  <h2>4. What&rsquo;s In the Report</h2>
+
+  <div class="deliverable-list">
+    <div class="deliverable">
+      <div class="deliverable-title">8-Domain Score Card</div>
+      <p class="deliverable-desc">Every domain scored 1&ndash;10 with a label and color-coded rating. See where the franchise is strong and where it needs scrutiny.</p>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-title">Item 19 Status &amp; Analysis</div>
+      <p class="deliverable-desc">Green checkmark or red warning, with explanation. Average unit revenue and profitability if disclosed. Context on why the absence matters.</p>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-title">Investment Summary</div>
+      <p class="deliverable-desc">Investment range, franchise fee, royalty structure, estimated payback period &mdash; all in one clean summary card.</p>
+    </div>
+    <div class="deliverable">
+      <div class="deliverable-title">Layer8 Recommendation</div>
+      <p class="deliverable-desc">BUY / BUY WITH CAUTION / DO NOT RECOMMEND. Based on overall score with color-coded banner. No ambiguity.</p>
+    </div>
+  </div>
+
+  <h2>5. For Franchise Consultants</h2>
+
+  <div class="consultant-box">
+    <h3>Built for consultant workflow</h3>
+    <p>
+      Layer8 Franchise Evaluation products are designed to augment a consultant&rsquo;s practice &mdash;
+      not replace it. We deliver structured, defensible analysis that gives consultants a faster
+      path to a confident recommendation and gives candidates a clear basis for decision-making.
+    </p>
+    <ul>
+      <li>Use FOE reports as a pre-qualification screen for new franchise candidates</li>
+      <li>Use FCR reports to structure comparison conversations between competing options</li>
+      <li>White-label options available for founding partner consultants</li>
+      <li><strong>Founding partner offer: first evaluation on us, 30-minute debrief included</strong></li>
+    </ul>
+  </div>
+
+  <h2>6. See the Demo</h2>
+
+  <div class="demo-cta">
+    <p>Explore the Anytime Fitness vs Snap Fitness evaluation portfolio built from real public FDD data.</p>
+    <a class="demo-btn" href="index.html">View Portfolio</a>
+    <a class="demo-btn secondary" href="reports/anytime_vs_snap_fcr.html">Open FCR Report</a>
+  </div>
+
+  <h2>7. Our Other Assessment Products</h2>
+
+  <div class="xlink-row">
+    <div class="xlink-card">
+      <div class="xlink-card-title">Exit Readiness Assessment</div>
+      <p class="xlink-card-desc">Seller-side business readiness scoring across 8 domains. Built for M&amp;A brokers and business owners preparing for sale.</p>
+      <a href="https://demo.layer8techgroup.com" target="_blank">demo.layer8techgroup.com &#8599;</a>
+    </div>
+    <div class="xlink-card">
+      <div class="xlink-card-title">Due Diligence Assessment</div>
+      <p class="xlink-card-desc">Buyer-side acquisition risk scoring across 8 domains. Includes deal structure recommendations and post-close integration playbook.</p>
+      <a href="https://dd.layer8techgroup.com" target="_blank">dd.layer8techgroup.com &#8599;</a>
+    </div>
+    <div class="xlink-card">
+      <div class="xlink-card-title">Franchise Evaluation Suite</div>
+      <p class="xlink-card-desc">FDD-based franchise opportunity scoring for consultants and candidates. FOE + FCR + FRA products. You&rsquo;re here.</p>
+      <a href="index.html">View Portfolio</a>
+    </div>
+  </div>
+
+</div>
+<div class="footer">Layer8 Tech Group &nbsp;&middot;&nbsp; layer8techgroup.com &nbsp;&middot;&nbsp; Confidential</div>
+</div>
+</body>
+</html>

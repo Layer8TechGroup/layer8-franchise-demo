@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franchise Evaluation Framework — Layer8 Methodology</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+         font-size:14px;line-height:1.7;color:#1F2937;background:#F3F4F6;margin:0;padding:0;}
+    .page{max-width:1000px;margin:0 auto;background:white;}
+    .header-bar{background:#1E2761;color:white;padding:20px 32px;display:flex;
+                justify-content:space-between;align-items:center;
+                -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .brand{font-size:20px;font-weight:700;display:block;}
+    .sub{font-size:13px;opacity:.8;margin-top:2px;display:block;}
+    nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .nav-link{color:rgba(255,255,255,0.75);font-size:12px;text-decoration:none;
+              padding:5px 11px;border:1px solid rgba(255,255,255,0.3);border-radius:4px;}
+    .nav-link.active{background:rgba(255,255,255,0.15);color:white;
+                     border-color:rgba(255,255,255,0.6);}
+    .nav-ext{color:#028090 !important;border-color:rgba(2,128,144,.5) !important;}
+    .content{padding:36px 40px;}
+    h1{font-size:26px;font-weight:700;color:#1E2761;margin:0 0 6px;}
+    .subtitle{font-size:16px;color:#028090;font-weight:500;margin:0 0 24px;}
+    h2{font-size:16px;font-weight:700;color:#1E2761;margin:32px 0 10px;
+       border-bottom:2px solid #E5E7EB;padding-bottom:6px;}
+    h3{font-size:14px;font-weight:700;color:#0f4c6e;margin:20px 0 6px;}
+    p{font-size:14px;color:#374151;max-width:800px;line-height:1.8;margin:0 0 12px;}
+    .fdd-intro{background:#F0FDFA;border:1px solid #99F6E4;border-radius:6px;
+               padding:16px 20px;margin:0 0 24px;
+               -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .fdd-intro p{color:#134E4A;margin:0;}
+    .item19-callout{background:#FEF3C7;border-left:4px solid #C9A84C;
+                    padding:16px 20px;margin:0 0 24px;border-radius:0 6px 6px 0;
+                    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .item19-callout p{color:#78350F;margin:0;}
+    .item19-callout strong{color:#92400E;}
+    .domain-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 28px;}
+    .domain-card{border:1px solid #E5E7EB;border-radius:6px;padding:14px 16px;
+                 background:white;}
+    .domain-card-title{font-size:13px;font-weight:700;color:#1E2761;margin:0 0 4px;}
+    .domain-weight{display:inline-block;font-size:11px;font-weight:700;
+                   background:#1E2761;color:white;padding:1px 8px;
+                   border-radius:10px;margin-left:8px;
+                   -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .domain-desc{font-size:12px;color:#6B7280;margin:0;line-height:1.6;}
+    .product-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0 32px;}
+    .product-card{border:1px solid #E5E7EB;border-radius:6px;padding:16px;background:white;}
+    .product-badge{font-size:22px;font-weight:800;color:#C9A84C;margin:0 0 4px;}
+    .product-name{font-size:13px;font-weight:700;color:#1E2761;margin:0 0 6px;}
+    .product-desc{font-size:12px;color:#6B7280;line-height:1.6;margin:0;}
+    .product-coming{font-size:11px;color:#9CA3AF;font-style:italic;margin-top:6px;}
+    .cta-block{background:#1E2761;color:white;padding:24px 28px;border-radius:6px;
+               margin:32px 0 0;text-align:center;
+               -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .cta-block p{color:rgba(255,255,255,.85);max-width:none;margin:0 0 14px;}
+    .cta-btn{display:inline-block;background:#C9A84C;color:#1E2761;
+             font-weight:700;font-size:13px;padding:10px 24px;border-radius:4px;
+             text-decoration:none;
+             -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .footer{text-align:center;font-size:12px;color:#9CA3AF;padding:16px 32px;
+            border-top:1px solid #E5E7EB;}
+    @media(max-width:680px){
+      .domain-grid{grid-template-columns:1fr;}
+      .product-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div class="header-bar">
+  <div>
+    <span class="brand">Layer8 Tech Group</span>
+    <span class="sub">Franchise Evaluation Suite &mdash; Methodology</span>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-link">Portfolio</a>
+    <a href="about_portfolio.html" class="nav-link">About</a>
+    <a href="franchise_guide.html" class="nav-link active">Methodology</a>
+    <a href="franchise_explainer.html" class="nav-link">What Is This?</a>
+    <a href="https://demo.layer8techgroup.com" class="nav-link nav-ext" target="_blank">ER Demo &#8599;</a>
+    <a href="https://dd.layer8techgroup.com" class="nav-link nav-ext" target="_blank">DD Demo &#8599;</a>
+  </nav>
+</div>
+
+<div class="content">
+
+  <h1>The Layer8 Franchise Evaluation Framework</h1>
+  <div class="subtitle">How we score franchise opportunities from the franchisee&rsquo;s perspective</div>
+
+  <h2>1. The 23-Item FDD &mdash; What It Is</h2>
+
+  <div class="fdd-intro">
+    <p>
+      Every franchise sold in the United States is legally required to provide a Franchise Disclosure Document (FDD)
+      to prospective buyers at least 14 days before signing any agreement. The FDD is a federally mandated document
+      containing 23 standardized items covering everything from the franchisor&rsquo;s litigation history (Items 3 &amp; 4)
+      to investment requirements (Item 7), fee structures (Item 5), franchise system size and attrition (Item 20),
+      and the franchisor&rsquo;s own audited financial statements (Item 21). The FDD is the foundation of every
+      Layer8 franchise evaluation.
+    </p>
+  </div>
+
+  <p>
+    The FDD is not a marketing document &mdash; it is a legal disclosure. What a franchisor chooses to include,
+    omit, or obscure in each item is itself a signal. Layer8 scores not only the content of the FDD but
+    the quality and transparency of the disclosure itself.
+  </p>
+
+  <h2>2. The Item 19 Problem</h2>
+
+  <div class="item19-callout">
+    <p>
+      <strong>Item 19 is the most important item in the FDD &mdash; and it is entirely optional.</strong>
+      Item 19 is the Financial Performance Representation section, where a franchisor may disclose average
+      unit revenues, expenses, and profitability data. Because it is optional, many franchisors simply
+      choose not to provide it. Layer8 treats this decision as a meaningful signal: a franchisor that
+      declines to disclose Item 19 data is withholding the single most important piece of evidence a buyer
+      needs to underwrite an investment.
+      <br><br>
+      Layer8 scores Item 19 at <strong>double weight</strong> (2.0&times;) within the FDD Quality domain
+      for exactly this reason. No other single criterion carries more weight in our framework.
+    </p>
+  </div>
+
+  <h2>3. Eight Evaluation Domains</h2>
+
+  <div class="domain-grid">
+    <div class="domain-card">
+      <div class="domain-card-title">FDD Quality &amp; Transparency <span class="domain-weight">15%</span></div>
+      <p class="domain-desc">Quality and completeness of FDD disclosure &mdash; the most important signal of franchisor integrity. Item 19 disclosure is scored at double weight within this domain.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Unit Economics <span class="domain-weight" style="background:#C9A84C;">25%</span></div>
+      <p class="domain-desc">Financial viability of a single franchise unit. Highest-weighted domain. Covers AUV, payback period, profit margin, fee structure, and investment clarity.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Franchisor Financial Health <span class="domain-weight">15%</span></div>
+      <p class="domain-desc">Stability and growth trajectory of the franchisor. Covers Item 21 financials, system unit count trends, company-owned unit ratio, support infrastructure, and ownership stability.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Territorial Rights &amp; Protection <span class="domain-weight">10%</span></div>
+      <p class="domain-desc">Quality of territorial protection. Covers territory definition, size, online channel rights, right of first refusal, and encroachment history.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Franchisee Satisfaction &amp; Support <span class="domain-weight">15%</span></div>
+      <p class="domain-desc">The most honest signal in any FDD evaluation. Covers satisfaction scores, attrition rates, training quality, technology, and marketing fund effectiveness.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Exit &amp; Transfer Provisions <span class="domain-weight">8%</span></div>
+      <p class="domain-desc">How easily a franchisee can exit. Covers transfer rights and fees, renewal terms, termination provisions, post-term non-compete, and dispute resolution.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Market &amp; Competitive Position <span class="domain-weight">7%</span></div>
+      <p class="domain-desc">Category dynamics and brand strength. Covers brand recognition, category growth, competitive differentiation, market saturation risk, and recession resistance.</p>
+    </div>
+    <div class="domain-card">
+      <div class="domain-card-title">Candidate Fit Assessment <span class="domain-weight">5%</span></div>
+      <p class="domain-desc">Match to a typical buyer profile. Covers owner involvement required, prior experience, capital accessibility, lifestyle compatibility, and multi-unit scalability.</p>
+    </div>
+  </div>
+
+  <h2>4. Three Products</h2>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-badge">FOE</div>
+      <div class="product-name">Franchise Opportunity Evaluation</div>
+      <p class="product-desc">Single-franchise deep score across all 8 domains and 40 criteria. Includes investment summary, Item 19 status, key strengths and concerns, and a Layer8 recommendation.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-badge">FCR</div>
+      <div class="product-name">Franchise Comparison Report</div>
+      <p class="product-desc">Side-by-side evaluation of two franchise opportunities. Domain-by-domain winner flags, unit economics comparison, and a direct Item 19 disclosure comparison.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-badge" style="color:#9CA3AF;">FRA</div>
+      <div class="product-name">Franchisee Readiness Assessment</div>
+      <p class="product-desc product-coming">Evaluates a candidate&rsquo;s readiness to franchise &mdash; capital position, experience fit, lifestyle requirements, and risk tolerance.</p>
+      <p class="product-coming">Coming soon</p>
+    </div>
+  </div>
+
+  <h2>5. Scoring Scale</h2>
+  <p>All criteria are scored 1&ndash;10 using domain-specific rubrics. Domain scores are weighted averages of their criteria scores. The overall score is a weighted blend of all 8 domain scores.</p>
+  <table style="width:auto;margin:12px 0 24px;font-size:13px;border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="background:#1E2761;color:white;padding:8px 16px;text-align:left;">Score</th>
+        <th style="background:#1E2761;color:white;padding:8px 16px;text-align:left;">Rating</th>
+        <th style="background:#1E2761;color:white;padding:8px 16px;text-align:left;">Recommendation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;">8.0 &ndash; 10</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#1a7a4a;font-weight:700;">STRONG / EXCEPTIONAL</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#1a7a4a;font-weight:700;">STRONG BUY / BUY</td></tr>
+      <tr style="background:#F9FAFB;"><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;">6.5 &ndash; 7.9</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#028090;font-weight:700;">ADEQUATE</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#028090;font-weight:700;">BUY</td></tr>
+      <tr><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;">5.0 &ndash; 6.4</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#D97706;font-weight:700;">NEEDS REVIEW</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#D97706;font-weight:700;">BUY WITH CAUTION</td></tr>
+      <tr style="background:#F9FAFB;"><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;">3.5 &ndash; 4.9</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#EA580C;font-weight:700;">HIGH RISK</td><td style="padding:8px 16px;border-bottom:1px solid #E5E7EB;color:#EA580C;font-weight:700;">NEEDS MORE INFO</td></tr>
+      <tr><td style="padding:8px 16px;">0 &ndash; 3.4</td><td style="padding:8px 16px;color:#DC2626;font-weight:700;">HIGH RISK</td><td style="padding:8px 16px;color:#DC2626;font-weight:700;">DO NOT RECOMMEND</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta-block">
+    <p>Ready to evaluate a franchise opportunity with Layer8?</p>
+    <a class="cta-btn" href="https://intake.layer8techgroup.com/franchise/">Start a Franchise Evaluation &rarr;</a>
+  </div>
+
+</div>
+<div class="footer">Layer8 Tech Group &nbsp;&middot;&nbsp; layer8techgroup.com &nbsp;&middot;&nbsp; Confidential</div>
+</div>
+</body>
+</html>

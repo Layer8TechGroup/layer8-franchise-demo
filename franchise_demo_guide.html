@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franchise Demo Guide — INTERNAL USE ONLY</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+         font-size:14px;line-height:1.7;color:#1F2937;background:#F3F4F6;margin:0;padding:0;}
+    .page{max-width:960px;margin:0 auto;background:white;}
+    .confidential-bar{background:#7F1D1D;color:white;text-align:center;padding:8px 20px;
+                      font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+                      -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .header-bar{background:#1E2761;color:white;padding:20px 32px;display:flex;
+                justify-content:space-between;align-items:center;
+                -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .brand{font-size:20px;font-weight:700;display:block;}
+    .sub{font-size:13px;opacity:.8;margin-top:2px;display:block;}
+    .content{padding:36px 40px;}
+    h1{font-size:24px;font-weight:700;color:#1E2761;margin:0 0 6px;}
+    .subtitle{font-size:15px;color:#028090;font-weight:500;margin:0 0 28px;}
+    h2{font-size:15px;font-weight:700;color:#1E2761;margin:32px 0 12px;padding-bottom:6px;
+       border-bottom:2px solid #E5E7EB;}
+    h3{font-size:13px;font-weight:700;color:#374151;margin:16px 0 6px;}
+    p{font-size:14px;color:#374151;max-width:760px;line-height:1.8;margin:0 0 10px;}
+    ul{margin:8px 0 14px;padding-left:20px;}
+    li{font-size:13px;color:#374151;line-height:1.8;margin-bottom:4px;}
+    .tp-card{border:1px solid #E5E7EB;border-radius:6px;margin:0 0 14px;overflow:hidden;}
+    .tp-header{background:#F8F9FA;padding:10px 16px;border-bottom:1px solid #E5E7EB;
+               font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;
+               letter-spacing:.08em;}
+    .tp-body{padding:14px 16px;}
+    .tp-body p{margin:0 0 8px;}
+    .tp-body p:last-child{margin:0;}
+    .key-stat{display:inline-block;background:#FEF3C7;border:1px solid #FDE68A;
+              border-radius:4px;padding:4px 10px;font-size:13px;font-weight:700;
+              color:#92400E;margin:2px 4px 2px 0;
+              -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .step-list{counter-reset:steps;list-style:none;padding:0;margin:12px 0 20px;}
+    .step-list li{counter-increment:steps;display:flex;gap:12px;align-items:flex-start;
+                  margin-bottom:14px;}
+    .step-list li::before{content:counter(steps);display:flex;align-items:center;
+                          justify-content:center;min-width:24px;height:24px;
+                          background:#1E2761;color:white;border-radius:50%;
+                          font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+                          -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .step-content p{margin:0;}
+    .step-title{font-weight:700;color:#1E2761;margin:0 0 2px;}
+    .step-desc{font-size:13px;color:#6B7280;}
+    .highlight-box{background:#F0FDFA;border:1px solid #99F6E4;border-radius:6px;
+                   padding:14px 18px;margin:12px 0;
+                   -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .highlight-box p{color:#134E4A;margin:0;font-size:13px;}
+    .warn-box{background:#FFF7ED;border:1px solid #FDE68A;border-radius:6px;
+              padding:14px 18px;margin:12px 0;
+              -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .warn-box p{color:#92400E;margin:0;font-size:13px;}
+    .ask-box{background:#1E2761;color:white;padding:22px 26px;border-radius:6px;
+             margin:24px 0 0;
+             -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .ask-box h3{font-size:14px;font-weight:700;color:#C9A84C;margin:0 0 10px;}
+    .ask-box p{color:rgba(255,255,255,.85);max-width:none;margin:0 0 8px;font-size:13px;}
+    .ask-box ul{margin:8px 0 0;}
+    .ask-box li{font-size:13px;color:rgba(255,255,255,.8);line-height:1.8;}
+    .dont-box{background:#FFEBEE;border:1px solid #FFCDD2;border-radius:6px;
+              padding:14px 18px;margin:16px 0;
+              -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .dont-box p{color:#b71c1c;font-weight:700;margin:0;font-size:13px;}
+    .footer{text-align:center;font-size:12px;color:#9CA3AF;padding:16px 32px;
+            border-top:1px solid #E5E7EB;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<div class="confidential-bar">&#128274; Confidential &mdash; Internal Use Only &mdash; Do Not Distribute</div>
+
+<div class="header-bar">
+  <div>
+    <span class="brand">Layer8 Tech Group</span>
+    <span class="sub">Franchise Demo Guide &mdash; Friday Consultant Meeting</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <h1>Franchise Demo Guide</h1>
+  <div class="subtitle">Internal cheat sheet for the Friday franchise consultant meeting</div>
+
+  <!-- Section 1: Talking Points -->
+  <h2>1. Friday Meeting Talking Points</h2>
+
+  <div class="tp-card">
+    <div class="tp-header">Open with this question</div>
+    <div class="tp-body">
+      <p><em>&ldquo;When a candidate brings you two FDDs to evaluate, what does your current comparison process look like?&rdquo;</em></p>
+      <p>Let them answer. Most will describe something manual, time-consuming, and inconsistent. That&rsquo;s the opening.</p>
+    </div>
+  </div>
+
+  <div class="tp-card">
+    <div class="tp-header">Key stats to land</div>
+    <div class="tp-body">
+      <p>
+        <span class="key-stat">14.8 vs 28.5 year payback</span>
+        <span class="key-stat">Item 19 present vs absent</span>
+        <span class="key-stat">7.41 vs 4.18 overall score</span>
+        <span class="key-stat">&minus;180 units in 3 years (Snap)</span>
+      </p>
+      <p>Same category. Same buyer profile. Completely different risk. Layer8 makes the difference visible in 60 seconds.</p>
+    </div>
+  </div>
+
+  <div class="tp-card">
+    <div class="tp-header">The Item 19 hook</div>
+    <div class="tp-body">
+      <p>
+        Item 19 is optional. Most consultants know this. What they may not have articulated clearly is:
+        <strong>choosing not to provide Item 19 is itself a data point</strong>. Snap Fitness made that choice.
+        Layer8 scores it at double weight. That single decision accounts for a significant portion of the
+        score gap between Anytime and Snap.
+      </p>
+      <p>The question to plant: <em>&ldquo;How do you currently communicate this risk to a candidate who&rsquo;s already excited about a brand?&rdquo;</em></p>
+    </div>
+  </div>
+
+  <div class="tp-card">
+    <div class="tp-header">Show the comparison report first</div>
+    <div class="tp-body">
+      <p>
+        The FCR (Franchise Comparison Report) is the most immediately compelling piece. It shows the
+        domain-by-domain gap at a glance &mdash; no setup required. Start there, then drill into the
+        individual FOE reports for Anytime and Snap to show the depth behind each score.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 2: Demo Flow -->
+  <h2>2. How to Demo</h2>
+
+  <ol class="step-list">
+    <li>
+      <div class="step-content">
+        <p class="step-title">Start at index.html</p>
+        <p class="step-desc">Walk through the portfolio overview. Point to the stats bar (2 evaluated, 8 domains, 40 criteria). Show the Item 19 column &mdash; green pill vs red pill. Let that land before clicking anything.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <p class="step-title">Open Anytime Fitness FOE</p>
+        <p class="step-desc">Click &ldquo;View Report&rdquo; for Anytime Fitness. Walk through the 8 domains. Point to the green Item 19 checkmark, the $395K average unit revenue, the 7.41 overall score. This is what a clean FDD looks like through the Layer8 lens.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <p class="step-title">Open Snap Fitness FOE</p>
+        <p class="step-desc">Click &ldquo;View Report&rdquo; for Snap Fitness. Immediately point to the red Item 19 warning. Then walk down to the domain table: unit economics is 2.20/10. Franchisee satisfaction is 3.5. System is contracting. The score tells a coherent story &mdash; let the report tell it.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <p class="step-title">Open the FCR Comparison Report</p>
+        <p class="step-desc">Show the domain-by-domain table. Anytime Fitness wins every domain. The winner banner at the top is instant. Then show the Item 19 section with the explicit callout about Snap not providing it &mdash; this is the defensible, documented basis for the recommendation.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <p class="step-title">Close with franchise_explainer.html</p>
+        <p class="step-desc">Walk through the three-product vision: FOE, FCR, and FRA (coming). Frame FRA as the complement &mdash; once you know the franchise scores high, you assess whether the candidate is right for it. That&rsquo;s the full consultant workflow.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="highlight-box">
+    <p><strong>Tip:</strong> Keep the browser at 100% zoom. The reports are designed to be readable at full screen. If you need to present on a projector, increase to 125%.</p>
+  </div>
+
+  <!-- Section 3: Founding Partner Ask -->
+  <h2>3. Founding Partner Ask</h2>
+
+  <div class="ask-box">
+    <h3>The Ask</h3>
+    <p>
+      Same framing as the M&amp;A broker ask for ER and DD products. We&rsquo;re looking for a small number
+      of founding partner franchise consultants who want to be part of building this product category.
+    </p>
+    <ul>
+      <li>First evaluation on us &mdash; bring us a real candidate and a real FDD</li>
+      <li>30-minute debrief included &mdash; we walk through the report together</li>
+      <li>Founding partner pricing locked in for the first 12 months</li>
+      <li>Early access to FRA (Franchisee Readiness Assessment) when it ships</li>
+      <li>Input into product development &mdash; your workflow shapes what we build</li>
+    </ul>
+  </div>
+
+  <!-- Section 4: Pricing -->
+  <h2>4. Pricing Questions</h2>
+
+  <div class="dont-box">
+    <p>&#9888; Do not discuss pricing today.</p>
+  </div>
+
+  <p>
+    If asked directly, say: <em>&ldquo;We&rsquo;re finalizing the founding partner pricing structure now.
+    What I can tell you is it&rsquo;s designed to fit a consultant workflow &mdash; per-evaluation pricing,
+    not a subscription. Let&rsquo;s do the first one together at no cost and you can tell me what it&rsquo;s
+    worth to your practice.&rdquo;</em>
+  </p>
+
+  <div class="warn-box">
+    <p>Redirect pricing questions to value: &ldquo;What does a bad franchise recommendation cost a client?&rdquo;</p>
+  </div>
+
+  <!-- Quick reference -->
+  <h2>5. Quick Reference</h2>
+
+  <table style="width:100%;border-collapse:collapse;font-size:13px;">
+    <thead>
+      <tr>
+        <th style="background:#1E2761;color:white;padding:8px 12px;text-align:left;">Item</th>
+        <th style="background:#1E2761;color:white;padding:8px 12px;text-align:left;">Anytime Fitness</th>
+        <th style="background:#1E2761;color:white;padding:8px 12px;text-align:left;">Snap Fitness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">Overall Score</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;font-weight:700;color:#2e7d32;">7.41 / 10</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;font-weight:700;color:#D97706;">4.18 / 10</td></tr>
+      <tr style="background:#F9FAFB;"><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">Recommendation</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#2e7d32;font-weight:700;">BUY</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#D97706;font-weight:700;">BUY WITH CAUTION</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">Item 19</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#1a7a4a;font-weight:700;">&#10003; Present</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#b71c1c;font-weight:700;">&#10007; Absent</td></tr>
+      <tr style="background:#F9FAFB;"><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">Avg Unit Revenue</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">$395,000 (disclosed)</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">$214,821 (est. only)</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">Payback Period</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">14.8 years</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#b71c1c;font-weight:700;">28.5 years</td></tr>
+      <tr style="background:#F9FAFB;"><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">Royalty Structure</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">$699/month fixed</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#D97706;">Not disclosed</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;">System Growth (3yr)</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#2e7d32;">+120 units</td><td style="padding:8px 12px;border-bottom:1px solid #E5E7EB;color:#b71c1c;font-weight:700;">&minus;180 units</td></tr>
+      <tr style="background:#F9FAFB;"><td style="padding:8px 12px;">Franchisee Attrition</td><td style="padding:8px 12px;color:#2e7d32;">3.68% / year</td><td style="padding:8px 12px;color:#D97706;">8.2% / year</td></tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="footer">Layer8 Tech Group &nbsp;&middot;&nbsp; INTERNAL ONLY &nbsp;&middot;&nbsp; Do Not Distribute</div>
+</div>
+</body>
+</html>
