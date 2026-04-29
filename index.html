@@ -31,8 +31,8 @@
              -webkit-print-color-adjust:exact;print-color-adjust:exact;}
     .callout a{color:#028090;font-weight:700;text-decoration:none;}
     .xlink-bar{background:#FFFBEB;border:1px solid #FDE68A;border-radius:6px;
-               padding:10px 16px;margin:0 0 22px;font-size:12px;color:#92400E;display:flex;
-               align-items:center;gap:6px;flex-wrap:wrap;
+               padding:10px 16px;margin:0 0 22px;font-size:12px;color:#92400E;
+               display:flex;align-items:center;gap:6px;flex-wrap:wrap;
                -webkit-print-color-adjust:exact;print-color-adjust:exact;}
     .xlink-bar a{color:#B45309;font-weight:700;text-decoration:none;}
     .stats-bar{display:flex;flex-wrap:wrap;background:#F8F9FA;border:1px solid #E5E7EB;
@@ -46,7 +46,6 @@
               letter-spacing:.05em;margin-top:2px;}
     h2{font-size:15px;color:#1E2761;border-bottom:2px solid #1E2761;
        padding-bottom:6px;margin:0 0 14px;}
-    h2.section-gap{margin-top:32px;}
     table{width:100%;border-collapse:collapse;font-size:13px;}
     th{background:#1E2761;color:white;padding:10px 12px;text-align:left;font-weight:600;
        -webkit-print-color-adjust:exact;print-color-adjust:exact;}
@@ -91,10 +90,9 @@
 
   <div class="callout">
     <strong>Demo portfolio:</strong> This portfolio demonstrates the Layer8 Franchise Opportunity Evaluation
-    (FOE) and Franchise Comparison Report (FCR) products using real public FDD data. Each report is scored
-    across 8 domains from the franchisee&rsquo;s perspective &mdash; including a direct analysis of Item 19
-    financial performance disclosure quality. Franchises assessed: Anytime Fitness and Snap Fitness,
-    both in the 24/7 fitness category.
+    (FOE) and Franchise Comparison Report (FCR) products using real public FDD data across 8 franchise
+    opportunities in 6 categories. Each report is scored across 8 domains and 40 criteria from the
+    franchisee&rsquo;s perspective &mdash; including direct analysis of Item 19 financial performance disclosure quality.
   </div>
 
   <div class="xlink-bar">
@@ -105,15 +103,15 @@
   </div>
 
   <div class="stats-bar">
-    <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">Franchises Evaluated</div></div>
-    <div class="stat"><div class="stat-val">5.80</div><div class="stat-lbl">Portfolio Avg Score</div></div>
-    <div class="stat"><div class="stat-val">1</div><div class="stat-lbl">BUY</div></div>
+    <div class="stat"><div class="stat-val">8</div><div class="stat-lbl">Franchises Evaluated</div></div>
+    <div class="stat"><div class="stat-val">6.87</div><div class="stat-lbl">Portfolio Avg Score</div></div>
+    <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">STRONG BUY</div></div>
+    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">BUY</div></div>
     <div class="stat"><div class="stat-val">1</div><div class="stat-lbl">BUY WITH CAUTION</div></div>
-    <div class="stat"><div class="stat-val">8</div><div class="stat-lbl">Domains Assessed</div></div>
-    <div class="stat"><div class="stat-val">40</div><div class="stat-lbl">Criteria Scored</div></div>
+    <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">NEEDS MORE INFO</div></div>
   </div>
 
-  <p class="section-label">Section 1 &mdash; Individual Franchise Evaluations (FOE)</p>
+  <p class="section-label">Section 1 &mdash; Individual Franchise Evaluations (FOE) &mdash; sorted by score</p>
   <h2>Franchise Opportunity Evaluations</h2>
 
   <table>
@@ -121,12 +119,12 @@
       <tr>
         <th style="width:28px;">#</th>
         <th>Franchise</th>
-        <th style="width:110px;">Category</th>
-        <th style="width:90px;text-align:center;">Score</th>
-        <th style="width:110px;">Rating</th>
-        <th style="width:160px;">Recommendation</th>
-        <th style="width:130px;text-align:center;">Item 19</th>
-        <th style="width:90px;"></th>
+        <th style="width:120px;">Category</th>
+        <th style="width:85px;text-align:center;">Score</th>
+        <th style="width:105px;">Rating</th>
+        <th style="width:155px;">Recommendation</th>
+        <th style="width:125px;text-align:center;">Item 19</th>
+        <th style="width:80px;"></th>
       </tr>
     </thead>
     <tbody>
@@ -134,39 +132,113 @@
       <tr>
         <td style="color:#9CA3AF;font-size:12px;text-align:center;">1</td>
         <td>
-          <div style="font-weight:600;font-size:13px;">Anytime Fitness</div>
-          <div style="font-size:11px;color:#6B7280;">Fitness / Health Club &nbsp;&middot;&nbsp; $459K&ndash;$908K</div>
+          <div style="font-weight:600;font-size:13px;">Brightway Insurance</div>
+          <div style="font-size:11px;color:#6B7280;">Insurance / Financial Services &nbsp;&middot;&nbsp; $89K&ndash;$215K</div>
         </td>
-        <td><span class="pill" style="color:#059669;background:#ECFDF5;">Fitness</span></td>
-        <td style="text-align:center;">
-          <span class="score-num" style="color:#2e7d32;">7.41</span>
-          <span style="font-size:11px;color:#9CA3AF;">/10</span>
-        </td>
-        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">STRONG</span></td>
-        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">BUY</span></td>
-        <td style="text-align:center;">
-          <span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span>
-        </td>
-        <td><a href="reports/anytime_fitness_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View Report &#8594;</a></td>
+        <td><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">Insurance</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#1a7a4a;">8.44</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">STRONG</span></td>
+        <td><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">STRONG BUY</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span></td>
+        <td><a href="reports/brightway_insurance_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
       </tr>
 
       <tr style="background:#F9FAFB;">
         <td style="color:#9CA3AF;font-size:12px;text-align:center;">2</td>
         <td>
+          <div style="font-weight:600;font-size:13px;">Pirtek</div>
+          <div style="font-size:11px;color:#6B7280;">Industrial Services / Hydraulics &nbsp;&middot;&nbsp; $192K&ndash;$389K</div>
+        </td>
+        <td><span class="pill" style="color:#0369A1;background:#EFF6FF;">Industrial</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#1a7a4a;">8.08</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">STRONG</span></td>
+        <td><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">STRONG BUY</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span></td>
+        <td><a href="reports/pirtek_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr>
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">3</td>
+        <td>
+          <div style="font-weight:600;font-size:13px;">Paul Davis Restoration</div>
+          <div style="font-size:11px;color:#6B7280;">Property Restoration / Insurance &nbsp;&middot;&nbsp; $175K&ndash;$550K</div>
+        </td>
+        <td><span class="pill" style="color:#5B21B6;background:#EDE9FE;">Restoration</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#2e7d32;">7.65</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">ADEQUATE</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">BUY</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span></td>
+        <td><a href="reports/paul_davis_restoration_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr style="background:#F9FAFB;">
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">4</td>
+        <td>
+          <div style="font-weight:600;font-size:13px;">Two Maids</div>
+          <div style="font-size:11px;color:#6B7280;">Home Services / Residential Cleaning &nbsp;&middot;&nbsp; $93K&ndash;$144K</div>
+        </td>
+        <td><span class="pill" style="color:#065F46;background:#D1FAE5;">Home Svcs</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#2e7d32;">7.24</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">ADEQUATE</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">BUY</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span></td>
+        <td><a href="reports/two_maids_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr>
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">5</td>
+        <td>
+          <div style="font-weight:600;font-size:13px;">Anytime Fitness</div>
+          <div style="font-size:11px;color:#6B7280;">Fitness / Health Club &nbsp;&middot;&nbsp; $459K&ndash;$908K</div>
+        </td>
+        <td><span class="pill" style="color:#059669;background:#ECFDF5;">Fitness</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#2e7d32;">7.14</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">ADEQUATE</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">BUY</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span></td>
+        <td><a href="reports/anytime_fitness_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr style="background:#F9FAFB;">
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">6</td>
+        <td>
+          <div style="font-weight:600;font-size:13px;">Smoothie King</div>
+          <div style="font-size:11px;color:#6B7280;">Food &amp; Beverage / Health &nbsp;&middot;&nbsp; $264K&ndash;$840K</div>
+        </td>
+        <td><span class="pill" style="color:#92400E;background:#FEF3C7;">Food &amp; Bev</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#D97706;">6.34</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#2e7d32;background:#E8F5E9;">ADEQUATE</span></td>
+        <td><span class="pill" style="color:#D97706;background:#FEF3C7;">BUY WITH CAUTION</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#1a7a4a;background:#DCFCE7;">&#10003; Disclosed</span></td>
+        <td><a href="reports/smoothie_king_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr>
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">7</td>
+        <td>
+          <div style="font-weight:600;font-size:13px;">Radiant Waxing</div>
+          <div style="font-size:11px;color:#6B7280;">Beauty / Personal Care &nbsp;&middot;&nbsp; $199K&ndash;$424K</div>
+        </td>
+        <td><span class="pill" style="color:#BE185D;background:#FCE7F3;">Beauty</span></td>
+        <td style="text-align:center;"><span class="score-num" style="color:#EA580C;">4.68</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
+        <td><span class="pill" style="color:#D97706;background:#FEF3C7;">NEEDS REVIEW</span></td>
+        <td><span class="pill" style="color:#D97706;background:#FEF3C7;">NEEDS MORE INFO</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#b71c1c;background:#FFEBEE;">&#10007; Not Disclosed</span></td>
+        <td><a href="reports/radiant_waxing_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr style="background:#F9FAFB;">
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">8</td>
+        <td>
           <div style="font-weight:600;font-size:13px;">Snap Fitness</div>
           <div style="font-size:11px;color:#6B7280;">Fitness / Health Club &nbsp;&middot;&nbsp; $431K&ndash;$1.12M</div>
         </td>
         <td><span class="pill" style="color:#059669;background:#ECFDF5;">Fitness</span></td>
-        <td style="text-align:center;">
-          <span class="score-num" style="color:#D97706;">4.18</span>
-          <span style="font-size:11px;color:#9CA3AF;">/10</span>
-        </td>
+        <td style="text-align:center;"><span class="score-num" style="color:#EA580C;">4.24</span><span style="font-size:11px;color:#9CA3AF;">/10</span></td>
         <td><span class="pill" style="color:#D97706;background:#FEF3C7;">NEEDS REVIEW</span></td>
-        <td><span class="pill" style="color:#D97706;background:#FEF3C7;">BUY WITH CAUTION</span></td>
-        <td style="text-align:center;">
-          <span class="pill" style="color:#b71c1c;background:#FFEBEE;">&#10007; Not Disclosed</span>
-        </td>
-        <td><a href="reports/snap_fitness_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View Report &#8594;</a></td>
+        <td><span class="pill" style="color:#D97706;background:#FEF3C7;">NEEDS MORE INFO</span></td>
+        <td style="text-align:center;"><span class="pill" style="color:#b71c1c;background:#FFEBEE;">&#10007; Not Disclosed</span></td>
+        <td><a href="reports/snap_fitness_foe.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
       </tr>
 
     </tbody>
@@ -181,22 +253,46 @@
         <th style="width:28px;">#</th>
         <th>Report</th>
         <th>Franchises Compared</th>
-        <th style="width:240px;">Winner</th>
-        <th style="width:90px;"></th>
+        <th style="width:250px;">Winner</th>
+        <th style="width:80px;"></th>
       </tr>
     </thead>
     <tbody>
 
       <tr>
         <td style="color:#9CA3AF;font-size:12px;text-align:center;">1</td>
+        <td><div style="font-weight:600;font-size:13px;">Brightway vs Radiant Waxing</div>
+            <div style="font-size:11px;color:#6B7280;">Item 19 Disclosed vs Not Disclosed &mdash; ROI Comparison</div></td>
+        <td style="font-size:12px;color:#374151;">Brightway Insurance vs. Radiant Waxing</td>
+        <td><span style="font-weight:700;color:#1a7a4a;">Brightway Insurance</span><span style="font-size:12px;color:#6B7280;"> (8.44 vs 4.68)</span></td>
+        <td><a href="reports/brightway_vs_radiant_fcr.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr style="background:#F9FAFB;">
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">2</td>
+        <td><div style="font-weight:600;font-size:13px;">Two Maids vs Smoothie King</div>
+            <div style="font-size:11px;color:#6B7280;">Home Services vs Food &amp; Beverage &mdash; ROI Comparison</div></td>
+        <td style="font-size:12px;color:#374151;">Two Maids vs. Smoothie King</td>
+        <td><span style="font-weight:700;color:#2e7d32;">Two Maids</span><span style="font-size:12px;color:#6B7280;"> (7.24 vs 6.34)</span></td>
+        <td><a href="reports/two_maids_vs_smoothie_king_fcr.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr>
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">3</td>
+        <td><div style="font-weight:600;font-size:13px;">Pirtek vs Paul Davis Restoration</div>
+            <div style="font-size:11px;color:#6B7280;">Two B2B Service Businesses &mdash; Scale Comparison</div></td>
+        <td style="font-size:12px;color:#374151;">Pirtek vs. Paul Davis Restoration</td>
+        <td><span style="font-weight:700;color:#1a7a4a;">Pirtek</span><span style="font-size:12px;color:#6B7280;"> (8.08 vs 7.65)</span></td>
+        <td><a href="reports/pirtek_vs_paul_davis_fcr.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
+      </tr>
+
+      <tr style="background:#F9FAFB;">
+        <td style="color:#9CA3AF;font-size:12px;text-align:center;">4</td>
         <td><div style="font-weight:600;font-size:13px;">Anytime vs Snap Fitness</div>
-            <div style="font-size:11px;color:#6B7280;">Fitness / Health Club &mdash; Direct Competitor Comparison</div></td>
-        <td style="font-size:13px;color:#374151;">Anytime Fitness &nbsp;vs.&nbsp; Snap Fitness</td>
-        <td>
-          <span style="font-weight:700;color:#2e7d32;">Anytime Fitness</span>
-          <span style="font-size:12px;color:#6B7280;"> &nbsp;(7.41 vs 4.18)</span>
-        </td>
-        <td><a href="reports/anytime_vs_snap_fcr.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View Report &#8594;</a></td>
+            <div style="font-size:11px;color:#6B7280;">Same Category, Different Outcomes &mdash; FDD Quality Comparison</div></td>
+        <td style="font-size:12px;color:#374151;">Anytime Fitness vs. Snap Fitness</td>
+        <td><span style="font-weight:700;color:#2e7d32;">Anytime Fitness</span><span style="font-size:12px;color:#6B7280;"> (7.14 vs 4.24)</span></td>
+        <td><a href="reports/anytime_vs_snap_fcr.html" style="color:#028090;font-weight:600;font-size:12px;text-decoration:none;">View &rarr;</a></td>
       </tr>
 
     </tbody>
@@ -204,18 +300,19 @@
 
   <p class="note">
     Scores are on a 1&ndash;10 scale where higher scores indicate a stronger franchise opportunity.
-    Scores reflect franchisee-perspective evaluation across 8 domains: FDD Quality &amp; Transparency,
-    Unit Economics, Franchisor Financial Health, Territorial Rights &amp; Protection,
-    Franchisee Satisfaction &amp; Support, Exit &amp; Transfer Provisions, Market &amp; Competitive Position,
-    and Candidate Fit Assessment.
-    <strong>STRONG</strong> = 8&ndash;10 &nbsp;&middot;&nbsp;
-    <strong>ADEQUATE</strong> = 6&ndash;7 &nbsp;&middot;&nbsp;
-    <strong>NEEDS REVIEW</strong> = 4&ndash;5 &nbsp;&middot;&nbsp;
-    <strong>HIGH RISK</strong> = 1&ndash;3
+    Evaluation spans 8 domains and 40 criteria from the franchisee&rsquo;s perspective.
+    <strong>STRONG</strong> = 8.0&ndash;10 &nbsp;&middot;&nbsp;
+    <strong>ADEQUATE</strong> = 6.0&ndash;7.9 &nbsp;&middot;&nbsp;
+    <strong>NEEDS REVIEW</strong> = 4.0&ndash;5.9 &nbsp;&middot;&nbsp;
+    <strong>HIGH RISK</strong> = 1.0&ndash;3.9.
+    <strong>STRONG BUY</strong> = 8.0+ &nbsp;&middot;&nbsp;
+    <strong>BUY</strong> = 6.5&ndash;7.9 &nbsp;&middot;&nbsp;
+    <strong>BUY WITH CAUTION</strong> = 5.0&ndash;6.4 &nbsp;&middot;&nbsp;
+    <strong>NEEDS MORE INFO</strong> = 3.5&ndash;4.9.
     <br><br>
-    Scores are based on publicly available FDD data and third-party research. All data is for demonstration
-    purposes. Always obtain the current FDD directly from the franchisor and consult a qualified franchise
-    attorney before making any investment decision.
+    Scores are based on publicly available FDD data, third-party research, and analyst qualitative assessment.
+    All data is for demonstration purposes. Always obtain the current FDD directly from the franchisor
+    and consult a qualified franchise attorney before making any investment decision.
   </p>
 
 </div>
