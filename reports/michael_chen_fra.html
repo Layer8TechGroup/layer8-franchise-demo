@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRA — Michael C. | Layer8 Franchise Evaluation Suite</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 1.65; color: #1F2937; background: #F3F4F6;
+}
+.report-wrap { max-width: 1020px; margin: 0 auto; padding: 0 0 40px; }
+
+.report-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; }
+.header-inner { padding: 32px 36px 24px; }
+.header-meta { font-size: 11px; letter-spacing: 2px; color: #7db8d8; text-transform: uppercase; margin-bottom: 10px; }
+.header-name { font-size: 30px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.header-cat { font-size: 13px; color: #93c5fd; margin-bottom: 4px; }
+.header-date { font-size: 12px; color: #64748b; margin-bottom: 20px; }
+.score-row { display: flex; align-items: center; gap: 20px; }
+.big-score { font-size: 52px; font-weight: 900; line-height: 1; }
+.score-label-text { font-size: 16px; font-weight: 800; letter-spacing: 1px; }
+.score-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+.rec-banner { padding: 14px 36px; font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
+.kpi-row { display: flex; background: rgba(255,255,255,0.06); border-top: 1px solid rgba(255,255,255,0.1); }
+.kpi-box { flex: 1; padding: 16px 24px; border-right: 1px solid rgba(255,255,255,0.1); }
+.kpi-box:last-child { border-right: none; }
+.kpi-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #7db8d8; margin-bottom: 6px; }
+.kpi-value { font-size: 18px; font-weight: 700; color: #fff; }
+
+.section { background: #fff; margin: 16px 0 0; padding: 28px 32px; border-top: 3px solid #1e3a5f; }
+.section-title { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #1e3a5f; border-bottom: 2px solid #C9A84C; padding-bottom: 8px; margin-bottom: 20px; }
+
+.snapshot-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 18px 22px; font-size: 14px; color: #374151; line-height: 1.8; margin-bottom: 20px; }
+.stat-trio { display: flex; gap: 12px; }
+.stat-box { flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 14px 16px; text-align: center; }
+.stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 8px; }
+.stat-val { font-size: 22px; font-weight: 800; }
+.stat-sub { font-size: 11px; color: #9CA3AF; margin-top: 4px; }
+
+.exec-summary { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 20px 24px; line-height: 1.8; }
+.exec-summary p { font-size: 14px; color: #374151; margin-bottom: 10px; }
+.exec-summary p:last-child { margin-bottom: 0; }
+
+.domain-card { border: 1px solid #E5E7EB; border-radius: 6px; margin-bottom: 20px; overflow: hidden; }
+.domain-header { background: #1e3a5f; color: #fff; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.domain-title { font-size: 13px; font-weight: 700; }
+.domain-meta { display: flex; gap: 10px; align-items: center; }
+.domain-weight { font-size: 11px; color: #93c5fd; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 10px; }
+.domain-score-badge { font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 10px; }
+.domain-desc { padding: 10px 18px; font-size: 12px; color: #6B7280; background: #F8FAFC; border-bottom: 1px solid #E5E7EB; }
+.criteria-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.criteria-table th { background: #F1F5F9; color: #374151; padding: 7px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid #E2E8F0; }
+.criteria-table td { padding: 9px 12px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+.criteria-table tr:last-child td { border-bottom: none; }
+.domain-narrative { padding: 12px 18px; font-size: 13px; color: #374151; background: #FAFBFC; border-top: 1px solid #E5E7EB; line-height: 1.75; }
+
+.match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
+.match-card { border: 1px solid #E5E7EB; border-radius: 6px; padding: 16px 18px; background: #F8FAFC; }
+.match-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.match-name { font-size: 14px; font-weight: 700; color: #1e3a5f; }
+.match-cat { font-size: 11px; color: #6B7280; margin-top: 2px; }
+.fit-badge { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 10px; white-space: nowrap; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.fit-strong { background: #ECFDF5; color: #065F46; }
+.fit-good { background: #D1FAE5; color: #059669; }
+.fit-possible { background: #FEF3C7; color: #B45309; }
+.match-reason { font-size: 12px; color: #374151; line-height: 1.6; margin-bottom: 10px; }
+.match-link { font-size: 12px; font-weight: 700; color: #028090; text-decoration: none; }
+
+.gap-list { display: flex; flex-direction: column; gap: 12px; }
+.gap-item { background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 6px; padding: 14px 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.gap-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.gap-domain { font-size: 13px; font-weight: 700; color: #92400E; }
+.gap-score-badge { background: #FEE2E2; color: #DC2626; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 700; }
+.gap-action { font-size: 13px; color: #374151; line-height: 1.65; }
+
+.talking-list { display: flex; flex-direction: column; gap: 12px; }
+.talking-item { display: flex; gap: 14px; padding: 14px 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; }
+.talking-num { width: 26px; height: 26px; background: #C9A84C; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.talking-text { font-size: 13px; color: #374151; line-height: 1.65; }
+
+.next-steps-list { display: flex; flex-direction: column; gap: 14px; }
+.next-step { display: flex; gap: 16px; padding: 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; }
+.step-num { width: 32px; height: 32px; background: #1e3a5f; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.step-title { font-size: 14px; font-weight: 700; color: #1e3a5f; margin-bottom: 4px; }
+.step-detail { font-size: 13px; color: #6B7280; line-height: 1.6; }
+
+.no-gap-box { background: #F0FDF4; border: 1px solid #BBF7D0; border-left: 4px solid #059669; border-radius: 0 6px 6px 0; padding: 14px 18px; display: flex; gap: 12px; }
+
+.report-footer { background: #0f172a; color: #94a3b8; padding: 24px 32px; margin-top: 16px; }
+.footer-brand { font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 4px; }
+.footer-url { font-size: 12px; color: #7db8d8; margin-bottom: 10px; }
+.footer-confidential { font-size: 12px; color: #f87171; font-weight: 600; margin-bottom: 8px; }
+.footer-disclaimer { font-size: 11px; line-height: 1.7; color: #64748b; }
+</style>
+</head>
+<body>
+<div class="report-wrap">
+
+<div class="report-header">
+  <div class="header-inner">
+    <div class="header-meta">Layer8 Franchise Evaluation Suite &nbsp;|&nbsp; Franchisee Readiness Assessment</div>
+    <div class="header-name">Michael C.</div>
+    <div class="header-cat">High Capital / Experienced Operator</div>
+    <div class="header-date">Assessment Date: April 29, 2026 &nbsp;|&nbsp; CONFIDENTIAL — CONSULTANT USE ONLY</div>
+    <div class="score-row">
+      <div class="big-score" style="color:#059669;">8.33</div>
+      <div class="score-meta">
+        <div class="score-label-text" style="color:#059669;">STRONG</div>
+        <div class="score-sub">Readiness Score out of 10.00 &nbsp;|&nbsp; 6 domains &nbsp;|&nbsp; 30 criteria</div>
+      </div>
+    </div>
+  </div>
+  <div class="rec-banner" style="background:#065F46;">&#9654; Layer8 Readiness Assessment: STRONG CANDIDATE</div>
+  <div class="kpi-row">
+    <div class="kpi-box"><div class="kpi-label">Financial Capacity</div><div class="kpi-value">8.8 / 10</div></div>
+    <div class="kpi-box"><div class="kpi-label">Operational Experience</div><div class="kpi-value">7.8 / 10</div></div>
+    <div class="kpi-box"><div class="kpi-label">Overall Readiness</div><div class="kpi-value">8.33 / 10</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">&#167; 1 &nbsp; Candidate Snapshot</div>
+  <div class="snapshot-box">Former VP of Operations at a regional healthcare network. 22 years corporate experience managing teams of 40+. Seeking semi-absentee ownership after early retirement. Strong financial position, clear exit vision.</div>
+  <div class="stat-trio">
+    <div class="stat-box">
+      <div class="stat-label">Top Strength</div>
+      <div class="stat-val" style="font-size:15px;color:#065F46;">Compliance & Background</div>
+      <div class="stat-sub">9.4 / 10</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Development Area</div>
+      <div class="stat-val" style="font-size:15px;color:#059669;">Market Territory Fit</div>
+      <div class="stat-sub">7.6 / 10</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Portfolio Matches</div>
+      <div class="stat-val" style="color:#1e3a5f;">3</div>
+      <div class="stat-sub">Recommended franchises</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">&#167; 2 &nbsp; Executive Summary</div>
+  <div class="exec-summary">
+    <p>Michael scores 8.33/10 (STRONG), indicating a highly qualified franchise candidate with strong fundamentals across all six readiness dimensions. This candidate is ready to approach franchise systems now.</p>
+    <p>The primary strength is <strong>Compliance & Background</strong> (9.4/10), which positions Michael competitively with franchisors in the recommended categories. The primary development area is <strong>Market Territory Fit</strong> (7.6/10) — this is adequate but represents the most room for improvement before committing.</p>
+  </div>
+</div>
+<div class="section"><div class="section-title">&#167; 3 &nbsp; Domain Readiness Register</div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Compliance & Background</div>
+          <div class="domain-meta">
+            <span class="domain-weight">10%</span>
+            <span class="domain-score-badge" style="background:#ECFDF5;color:#065F46;">9.4 &nbsp;STRONG</span>
+          </div>
+        </div>
+        <div class="domain-desc">Credit history, legal background, and ability to meet franchisor qualification requirements.</div>
+        <table class="criteria-table">
+          <thead><tr><th>Criterion</th><th style="text-align:center;">Score</th><th>Finding</th></tr></thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Credit History</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — credit history is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Legal & Regulatory Background</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">10</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — legal & regulatory background is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Professional References</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — professional references is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Prior Business Litigation</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">10</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — prior business litigation is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Franchisor Qualification Readiness</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — franchisor qualification readiness is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Compliance profile is clean. Excellent credit (9/10) and clean legal background (10/10) mean this candidate will clear franchisor qualification and SBA underwriting without material friction.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Financial Capacity</div>
+          <div class="domain-meta">
+            <span class="domain-weight">25%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">8.8 &nbsp;STRONG</span>
+          </div>
+        </div>
+        <div class="domain-desc">Liquid capital, net worth, debt service coverage, and financial risk tolerance relative to the target franchise investment range.</div>
+        <table class="criteria-table">
+          <thead><tr><th>Criterion</th><th style="text-align:center;">Score</th><th>Finding</th></tr></thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Liquid Capital Available</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — liquid capital available is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Net Worth</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — net worth is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Debt Service Coverage</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — debt service coverage is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Investment Risk Tolerance</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — investment risk tolerance is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">SBA/Financing Readiness</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — sba/financing readiness is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Financial capacity is a standout strength. With strong liquid capital (fc_01: 9/10) and solid financing readiness (fc_05: 9/10), this candidate qualifies for premium franchise categories and should present to franchisors with confidence.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Lifestyle & Commitment Fit</div>
+          <div class="domain-meta">
+            <span class="domain-weight">15%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">8.6 &nbsp;STRONG</span>
+          </div>
+        </div>
+        <div class="domain-desc">Alignment between the candidate's lifestyle expectations and the franchise's operational demands.</div>
+        <table class="criteria-table">
+          <thead><tr><th>Criterion</th><th style="text-align:center;">Score</th><th>Finding</th></tr></thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Owner Involvement Preference</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — owner involvement preference is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Hours & Schedule Commitment</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — hours & schedule commitment is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Family & Support System</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — family & support system is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Exit Timeline & Patience</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — exit timeline & patience is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Stress & Uncertainty Tolerance</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — stress & uncertainty tolerance is well above minimum standards; present this confidently.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Lifestyle alignment is excellent. Family support (9/10) and realistic timeline expectations (9/10) indicate this candidate is prepared for the full franchise ownership experience — including the challenging early period.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Growth Ambition & Scalability</div>
+          <div class="domain-meta">
+            <span class="domain-weight">15%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">8.0 &nbsp;STRONG</span>
+          </div>
+        </div>
+        <div class="domain-desc">Single-unit vs multi-unit goals, scaling appetite, and long-term vision alignment with franchise ownership.</div>
+        <table class="criteria-table">
+          <thead><tr><th>Criterion</th><th style="text-align:center;">Score</th><th>Finding</th></tr></thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Multi-Unit Ambition</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — multi-unit ambition is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Growth Capital Access</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — growth capital access is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Long-Term Vision Clarity</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — long-term vision clarity is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Franchisor Relationship Orientation</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — franchisor relationship orientation is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Learning & Coachability</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — learning & coachability is well above minimum standards; present this confidently.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Growth ambition and scalability profile are strong. The candidate has clear multi-unit vision with capital to execute. Franchisor relationship orientation (7/10) and coachability (8/10) should be verified during discovery days.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Operational Experience</div>
+          <div class="domain-meta">
+            <span class="domain-weight">20%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">7.8 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">Management depth, team building ability, and relevant business or industry background.</div>
+        <table class="criteria-table">
+          <thead><tr><th>Criterion</th><th style="text-align:center;">Score</th><th>Finding</th></tr></thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Management Experience</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">10</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — management experience is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Prior Business Ownership</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Adequate — prior business ownership meets minimum expectations with room to improve before approaching franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Sales & Customer Relationships</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — sales & customer relationships is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Staff Hiring & Retention</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Exceptional — staff hiring & retention is a clear competitive strength that will differentiate this candidate with franchisors.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Industry Relevant Background</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — industry relevant background is well above minimum standards; present this confidently.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Operational experience is solid with specific gaps. The candidate's management foundation (10/10) is adequate; prior ownership experience (6/10) should be framed positively or supplemented with franchisee shadowing.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Market Territory Fit</div>
+          <div class="domain-meta">
+            <span class="domain-weight">15%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">7.6 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">Target geography, demographic match, competitive landscape, and territory availability.</div>
+        <table class="criteria-table">
+          <thead><tr><th>Criterion</th><th style="text-align:center;">Score</th><th>Finding</th></tr></thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Target Geography Clarity</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — target geography clarity is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Demographic Market Match</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — demographic market match is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Competitive Landscape</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — competitive landscape is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Territory Availability</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — territory availability is well above minimum standards; present this confidently.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:26%;">Community & Network Advantage</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;">Strong — community & network advantage is well above minimum standards; present this confidently.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Territory fit is adequate. The candidate should complete a formal territory analysis — demographic data, competitive mapping, and site visits — before signing any franchise agreement.</div>
+      </div></div>
+
+<div class="section">
+  <div class="section-title">&#167; 4 &nbsp; Portfolio Franchise Matches</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">The following franchises from the Layer8 portfolio are recommended based on this candidate's financial capacity, operational experience, and growth profile. Each match includes a direct link to the full Franchise Opportunity Evaluation (FOE) report.</p>
+  <div class="match-grid">
+      <div class="match-card">
+        <div class="match-header">
+          <div>
+            <div class="match-name">Pirtek</div>
+            <div class="match-cat">Industrial Services / Hydraulics</div>
+          </div>
+          <span class="fit-badge fit-strong">STRONG FIT</span>
+        </div>
+        <div class="match-reason">High AUV B2B model rewards experienced operators; 2.1% attrition signals strong system</div>
+        <a class="match-link" href="pirtek_foe.html">View FOE Report &rarr;</a>
+      </div>
+      <div class="match-card">
+        <div class="match-header">
+          <div>
+            <div class="match-name">Paul Davis Restoration</div>
+            <div class="match-cat">Property Restoration / Insurance</div>
+          </div>
+          <span class="fit-badge fit-strong">STRONG FIT</span>
+        </div>
+        <div class="match-reason">Complex operations favor experienced managers; recession-resistant revenue stream</div>
+        <a class="match-link" href="paul_davis_restoration_foe.html">View FOE Report &rarr;</a>
+      </div>
+      <div class="match-card">
+        <div class="match-header">
+          <div>
+            <div class="match-name">Brightway Insurance</div>
+            <div class="match-cat">Insurance / Financial Services</div>
+          </div>
+          <span class="fit-badge fit-good">GOOD FIT</span>
+        </div>
+        <div class="match-reason">Revenue share model rewards strong networkers; home-based suits semi-absentee preference</div>
+        <a class="match-link" href="brightway_insurance_foe.html">View FOE Report &rarr;</a>
+      </div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">&#167; 5 &nbsp; Development Gaps</div>
+  <div class="no-gap-box">
+    <span style="font-size:20px;">&#10003;</span>
+    <div>
+      <div style="font-weight:700;color:#065F46;margin-bottom:4px;">No Material Development Gaps</div>
+      <div style="font-size:13px;color:#374151;">All six readiness domains score 6.0 or above. This candidate is ready to engage franchise systems without material development gaps to address. Proceed with franchise discovery.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">&#167; 6 &nbsp; Consultant Talking Points</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:14px;">Specific talking points for presenting Michael C. to franchise development teams. Lead with strengths; frame gaps proactively.</p>
+  <div class="talking-list"><div class="talking-item"><div class="talking-num">1</div><div class="talking-text">Michael's strongest attribute is compliance & background (score: 9.4/10) — lead with this when presenting to franchisor development teams.</div></div><div class="talking-item"><div class="talking-num">2</div><div class="talking-text">Secondary strength in financial capacity (8.8/10) reinforces operating credibility and should be highlighted in the franchisee application.</div></div><div class="talking-item"><div class="talking-num">3</div><div class="talking-text">Recommended first contact: Pirtek — the strongest portfolio match based on capital profile, experience, and territory fit.</div></div><div class="talking-item"><div class="talking-num">4</div><div class="talking-text">All six readiness domains score 6.0+. Present Michael as a complete candidate with no material gaps requiring explanation.</div></div><div class="talking-item"><div class="talking-num">5</div><div class="talking-text">Suggested discovery day sequence: start with Pirtek for highest-probability close, then validate with 3 existing franchisees from the Item 20 list before final commitment.</div></div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">&#167; 7 &nbsp; Recommended Next Steps</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:14px;">Based on readiness assessment: <strong>STRONG CANDIDATE</strong> (8.33/10).</p>
+  <div class="next-steps-list">
+      <div class="next-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Schedule Discovery Day with Pirtek</div>
+          <div class="step-detail">This is the highest-probability match based on Michael's profile. Request a discovery day within 30 days — the candidate is ready to engage.</div>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Contact 5 existing franchisees from Item 20 list</div>
+          <div class="step-detail">Before any commitment, Michael should speak directly with 5 current franchisees in target markets. Ask specifically about Year 1 revenue and operational demands.</div>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Engage franchise attorney for FDD review</div>
+          <div class="step-detail">Budget $2,500–$5,000 for a franchise-specific attorney. Have them review the franchise agreement with particular attention to transfer rights and renewal terms.</div>
+        </div>
+      </div></div>
+</div>
+
+<div class="report-footer">
+  <div class="footer-brand">Layer8 Tech Group &nbsp;|&nbsp; Franchise Evaluation Suite &nbsp;|&nbsp; Franchisee Readiness Assessment</div>
+  <div class="footer-url">franchise.layer8techgroup.com &nbsp;|&nbsp; layer8techgroup.com</div>
+  <div class="footer-confidential">&#128274; CONFIDENTIAL — PREPARED FOR FRANCHISE CONSULTANT USE ONLY</div>
+  <div class="footer-disclaimer">This assessment is confidential and prepared for franchise consultant use only. Candidate information is not shared with franchisors without written consent. Scores reflect Layer8's analytical framework applied to candidate-provided information and do not constitute legal, financial, or investment advice. Generated: April 29, 2026</div>
+</div>
+</div>
+</body>
+</html>
