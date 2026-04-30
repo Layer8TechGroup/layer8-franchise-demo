@@ -104,6 +104,21 @@ body {
 .step-title { font-size: 14px; font-weight: 700; color: #1e3a5f; margin-bottom: 4px; }
 .step-detail { font-size: 13px; color: #6B7280; line-height: 1.6; }
 
+/* ── FDD currency callout ── */
+.currency-callout { display: flex; gap: 10px; align-items: flex-start; padding: 12px 20px; font-size: 13px; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.currency-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.currency-meta { font-size: 11px; color: inherit; opacity: 0.75; }
+.currency-current { background: #F0FDF4; border-left: 4px solid #059669; color: #065F46; }
+.currency-aging { background: #FFFBEB; border-left: 4px solid #D97706; color: #92400E; }
+.currency-outdated { background: #FFF1F2; border-left: 4px solid #DC2626; color: #991B1B; }
+.currency-unknown { background: #F9FAFB; border-left: 4px solid #9CA3AF; color: #374151; }
+
+/* ── Beyond the FDD callout ── */
+.callout-teal { background: #F0FDFA; border: 1px solid #99F6E4; border-left: 4px solid #0D9488; border-radius: 0 6px 6px 0; padding: 20px 24px; line-height: 1.8; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-teal p { font-size: 13px; color: #134E4A; margin-bottom: 14px; }
+.callout-teal p:last-child { margin-bottom: 0; font-style: italic; color: #0F766E; }
+.callout-teal strong { color: #0F766E; }
+
 /* ── Footer ── */
 .report-footer { background: #0f172a; color: #94a3b8; padding: 24px 32px; margin-top: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 .footer-brand { font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 4px; }
@@ -146,12 +161,19 @@ body {
     </div>
   </div>
 </div>
+<div class="currency-callout currency-current">
+  <span class="currency-icon">&#9679;</span>
+  <div>
+    <strong>FDD Currency: Current</strong> &mdash; 2024 FDD (12 months old). Data reflects current franchise system.
+    &nbsp;&nbsp;<span class="currency-meta">Source: Public Registry &nbsp;·&nbsp; &#9679; Provenance unverified</span>
+  </div>
+</div>
 <div class="section">
   <div class="section-title">&#167; 2 &nbsp; Item 19 Financial Performance Status</div>
   <div class="callout-red">
     <div class="callout-icon">&#9888;</div>
     <div>
-      <div class="callout-head">Item 19 Not Disclosed — Financial Performance Not Represented</div>
+      <div class="callout-head">Item 19 Not Disclosed &nbsp;&nbsp;<span style="font-size:12px;font-weight:400;color:#DC2626;">Disclosure Type: NONE &nbsp;|&nbsp; Quality: ★☆☆☆☆ (0/5)</span></div>
       <div class="callout-body">This franchisor does not provide financial performance representations in the FDD. Item 19 is optional under FTC franchise disclosure rules, but its absence means <strong>you have no franchisor-verified basis to project revenue or profitability</strong>. This is a deliberate decision by the franchisor.<br><br>
       <strong>What to do instead:</strong> Request historical P&amp;L data from existing franchisees directly using the Item 20 contact list. Ask specifically about Year 1, Year 2, and Year 3 revenue and margin. Do not proceed without this data.<br><br>
       <em>Franchisor note: No Item 19 — revenue estimate from third-party analysis only</em></div>
@@ -428,7 +450,7 @@ body {
             <td style="text-align:center;width:7%;">
               <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FECACA;color:#DC2626;font-weight:800;font-size:13px;">2</span>
             </td>
-            <td style="font-size:12px;color:#374151;width:35%;">No Item 19 provided. Franchisor has not disclosed financial performance representations.</td>
+            <td style="font-size:12px;color:#374151;width:35%;">No Item 19 provided (disclosure_type: NONE). Franchisor has not disclosed financial performance representations.</td>
             <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Critical gap — you cannot verify unit economics from the FDD alone. Direct franchisee interviews are mandatory.</td>
           </tr>
           <tr>
@@ -781,7 +803,7 @@ body {
           <span class="flag-area">Item 19 Financial Performance Disclosure</span>
           <span class="flag-score" style="background:#FEE2E2;color:#DC2626;">2/10</span>
         </div>
-        <div class="flag-finding">&#9656; No Item 19 provided. Franchisor has not disclosed financial performance representations.</div>
+        <div class="flag-finding">&#9656; No Item 19 provided (disclosure_type: NONE). Franchisor has not disclosed financial performance representations.</div>
         <div class="flag-action">&#128204; Recommended action: Critical gap — you cannot verify unit economics from the FDD alone. Direct franchisee interviews are mandatory.</div>
       </div>
       <div class="flag-item">
@@ -1076,7 +1098,27 @@ body {
   </table>
 </div>
 <div class="section">
-  <div class="section-title">&#167; 10 &nbsp; Recommended Next Steps</div>
+  <div class="section-title">&#167; 10 &nbsp; Beyond the FDD — What the Data Can't Tell You</div>
+  <div class="callout-teal">
+    <p>The FDD provides the structural framework for evaluating a franchise opportunity. But experienced franchise consultants know that the most important signals come from outside the document:</p>
+
+    <p><strong>Validation Calls with Current Franchisees</strong><br>
+    Item 20 lists every current and former franchisee with contact information. Speaking with 5–10 current owners — especially those in similar markets — reveals operational realities the FDD cannot capture: actual support quality, real unit economics, and whether the franchisor delivers on its promises.</p>
+
+    <p><strong>Former Franchisee Conversations</strong><br>
+    Item 20 also lists terminated and non-renewed franchisees. These conversations are often the most revealing. Why did they leave? Was it performance, support, or systemic issues?</p>
+
+    <p><strong>Discovery Day</strong><br>
+    Most franchisors offer a Discovery Day — a visit to headquarters to meet the leadership team. The quality of this experience is a meaningful signal of the franchisor's operational maturity and culture.</p>
+
+    <p><strong>The Item 19 Reality Check</strong><br>
+    Even disclosed Item 19 data has limitations — it reflects system-wide averages, not your specific territory. Ask existing franchisees in comparable markets what their actual unit economics look like.</p>
+
+    <p><em>Layer8 scoring surfaces the structural signals from the FDD. Your franchise consultant interprets what those signals mean for your specific situation.</em></p>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 11 &nbsp; Recommended Next Steps</div>
   <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Action items based on Layer8 recommendation: <strong>NEEDS MORE INFO</strong> for Snap Fitness (4.24/10).</p>
   <div class="next-steps-list">
       <div class="next-step">
