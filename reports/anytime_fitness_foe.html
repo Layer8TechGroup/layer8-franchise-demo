@@ -3,272 +3,1007 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FOE — Anytime Fitness</title>
-  
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f6f9;
-    color: #1a2332;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .page { max-width: 1000px; margin: 0 auto; padding: 32px 24px; }
+  <title>FOE — Anytime Fitness | Layer8 Franchise Evaluation Suite</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 1.65; color: #1F2937; background: #F3F4F6;
+}
+.report-wrap { max-width: 1020px; margin: 0 auto; padding: 0 0 40px; }
 
-  /* Header */
-  .header {
-    background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 100%);
-    color: #fff;
-    padding: 32px 36px;
-    border-radius: 8px 8px 0 0;
-  }
-  .header-brand { font-size: 11px; letter-spacing: 2px; color: #7db8d8;
-                  text-transform: uppercase; margin-bottom: 6px; }
-  .header-title { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
-  .header-sub { font-size: 14px; color: #a8c4d8; }
-  .score-badge {
-    display: inline-block;
-    background: #c9a227;
-    color: #fff;
-    font-size: 36px;
-    font-weight: 800;
-    padding: 8px 20px;
-    border-radius: 6px;
-    margin-top: 12px;
-  }
-  .score-label {
-    display: inline-block;
-    margin-left: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    vertical-align: middle;
-    color: #c9a227;
-    letter-spacing: 1px;
-  }
+/* ── Header ── */
+.report-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; }
+.header-inner { padding: 32px 36px 24px; }
+.header-meta { font-size: 11px; letter-spacing: 2px; color: #7db8d8; text-transform: uppercase; margin-bottom: 10px; }
+.header-name { font-size: 30px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.header-category { font-size: 14px; color: #93c5fd; margin-bottom: 4px; }
+.header-date { font-size: 12px; color: #64748b; margin-bottom: 20px; }
+.score-row { display: flex; align-items: center; gap: 20px; }
+.big-score { font-size: 52px; font-weight: 900; line-height: 1; }
+.score-label-text { font-size: 16px; font-weight: 800; letter-spacing: 1px; }
+.score-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+.rec-banner { padding: 14px 36px; font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
+.kpi-row { display: flex; background: rgba(255,255,255,0.06); border-top: 1px solid rgba(255,255,255,0.1); }
+.kpi-box { flex: 1; padding: 16px 24px; border-right: 1px solid rgba(255,255,255,0.1); }
+.kpi-box:last-child { border-right: none; }
+.kpi-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #7db8d8; margin-bottom: 6px; }
+.kpi-value { font-size: 16px; font-weight: 700; color: #fff; }
 
-  /* Recommendation banner */
-  .rec-banner {
-    padding: 14px 24px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #fff;
-    border-radius: 0;
-  }
+/* ── Section wrappers ── */
+.section { background: #fff; margin: 16px 0 0; padding: 28px 32px; border-top: 3px solid #1e3a5f; }
+.section-title { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #1e3a5f; border-bottom: 2px solid #C9A84C; padding-bottom: 8px; margin-bottom: 20px; }
 
-  /* Cards */
-  .card {
-    background: #fff;
-    border-radius: 6px;
-    padding: 24px;
-    margin-top: 20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  }
-  .card-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #0d2137;
-    border-bottom: 2px solid #c9a227;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-  }
+/* ── Callouts ── */
+.callout-green { display: flex; gap: 14px; background: #F0FDF4; border: 1px solid #BBF7D0; border-left: 4px solid #059669; border-radius: 0 6px 6px 0; padding: 16px; margin-bottom: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-red { display: flex; gap: 14px; background: #FFF1F2; border: 1px solid #FECDD3; border-left: 4px solid #DC2626; border-radius: 0 6px 6px 0; padding: 16px; margin-bottom: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-icon { font-size: 22px; flex-shrink: 0; }
+.callout-head { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.callout-green .callout-head { color: #065F46; }
+.callout-red .callout-head { color: #DC2626; }
+.callout-body { font-size: 13px; line-height: 1.7; color: #374151; }
 
-  /* Tables */
-  table { width: 100%; border-collapse: collapse; }
-  th {
-    background: #0d2137;
-    color: #fff;
-    padding: 8px 12px;
-    text-align: left;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-  }
-  td { padding: 8px 12px; border-bottom: 1px solid #eef0f4; }
-  tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: #f8fafc; }
+/* ── Stat trio ── */
+.stat-trio { display: flex; gap: 12px; margin-top: 12px; }
+.stat-box { flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 14px 16px; text-align: center; }
+.stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 8px; }
+.stat-val { font-size: 22px; font-weight: 800; color: #1e3a5f; }
+.stat-sub { font-size: 11px; color: #9CA3AF; margin-top: 4px; }
 
-  /* Score pills */
-  .pill {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .pill-exceptional { background: #1a7a4a; }
-  .pill-strong      { background: #2e7d32; }
-  .pill-adequate    { background: #f57c00; }
-  .pill-review      { background: #d84315; }
-  .pill-risk        { background: #b71c1c; }
+/* ── Executive summary ── */
+.exec-summary { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 20px 24px; line-height: 1.8; }
+.exec-summary p { margin-bottom: 10px; font-size: 14px; color: #374151; }
+.exec-summary p:last-child { margin-bottom: 0; }
 
-  /* KV grid */
-  .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .kv-item { background: #f4f6f9; padding: 12px 16px; border-radius: 4px; }
-  .kv-label { font-size: 11px; color: #5a7a9a; text-transform: uppercase;
-              letter-spacing: 0.8px; margin-bottom: 4px; }
-  .kv-value { font-size: 18px; font-weight: 700; color: #0d2137; }
-  .kv-note { font-size: 11px; color: #6a8aaa; margin-top: 2px; }
+/* ── Domain cards ── */
+.domain-card { border: 1px solid #E5E7EB; border-radius: 6px; margin-bottom: 20px; overflow: hidden; }
+.domain-header { background: #1e3a5f; color: #fff; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.domain-title { font-size: 13px; font-weight: 700; }
+.domain-meta { display: flex; gap: 10px; align-items: center; }
+.domain-weight { font-size: 11px; color: #93c5fd; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 10px; }
+.domain-score-badge { font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 10px; }
+.domain-desc { padding: 10px 18px; font-size: 12px; color: #6B7280; background: #F8FAFC; border-bottom: 1px solid #E5E7EB; }
+.criteria-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.criteria-table th { background: #F1F5F9; color: #374151; padding: 7px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid #E2E8F0; }
+.criteria-table td { padding: 9px 12px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+.criteria-table tr:last-child td { border-bottom: none; }
+.criteria-table tr:hover td { background: #F8FAFC; }
+.domain-narrative { padding: 12px 18px; font-size: 13px; color: #374151; background: #FAFBFC; border-top: 1px solid #E5E7EB; line-height: 1.75; }
 
-  /* Item 19 */
-  .item19-present { background: #e8f5e9; border-left: 4px solid #2e7d32;
-                    padding: 12px 16px; border-radius: 0 4px 4px 0; }
-  .item19-absent  { background: #fbe9e7; border-left: 4px solid #b71c1c;
-                    padding: 12px 16px; border-radius: 0 4px 4px 0; }
-  .item19-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
-  .item19-present .item19-title { color: #1b5e20; }
-  .item19-absent  .item19-title { color: #b71c1c; }
+/* ── FDD item blocks ── */
+.fdd-item-block { margin-bottom: 24px; border: 1px solid #E5E7EB; border-radius: 6px; overflow: hidden; }
+.fdd-item-header { background: #1e3a5f; color: #fff; padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.fdd-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.fdd-table th { background: #F1F5F9; padding: 8px 14px; text-align: left; font-size: 11px; font-weight: 700; color: #374151; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid #E2E8F0; }
+.fdd-table td { padding: 9px 14px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+.fdd-table tr:last-child td { border-bottom: none; }
 
-  /* Strength / concern lists */
-  .strength { color: #1a7a4a; font-weight: 600; }
-  .concern  { color: #b71c1c; font-weight: 600; }
+/* ── Red flags ── */
+.flag-list { display: flex; flex-direction: column; gap: 12px; }
+.flag-item { background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 6px; padding: 14px 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.flag-header { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.flag-cid { font-size: 10px; font-weight: 800; background: #DC2626; color: #fff; padding: 2px 8px; border-radius: 4px; }
+.flag-area { font-size: 13px; font-weight: 700; color: #1F2937; flex: 1; }
+.flag-score { padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.flag-finding { font-size: 13px; color: #374151; margin-bottom: 6px; }
+.flag-action { font-size: 12px; color: #6B7280; }
 
-  /* Comparison specifics */
-  .winner-cell { font-weight: 700; color: #1a7a4a; }
-  .loser-cell  { color: #888; }
-  .tie-cell    { color: #f57c00; }
-  .flag-absent { color: #b71c1c; font-weight: 700; }
-  .flag-present { color: #1a7a4a; font-weight: 700; }
+/* ── Questions ── */
+.question-group { margin-bottom: 24px; }
+.question-group-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1e3a5f; border-bottom: 1px solid #E5E7EB; padding-bottom: 6px; margin-bottom: 12px; }
+.question-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #F1F5F9; }
+.question-item:last-child { border-bottom: none; }
+.question-num { width: 24px; height: 24px; background: #1e3a5f; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.question-text { font-size: 13px; font-weight: 600; color: #1F2937; margin-bottom: 4px; }
+.question-why { font-size: 12px; color: #6B7280; line-height: 1.6; }
 
-  /* Footer */
-  .footer {
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid #dde2ea;
-    font-size: 11px;
-    color: #8a9ab8;
-    line-height: 1.6;
-  }
+/* ── Next steps ── */
+.next-steps-list { display: flex; flex-direction: column; gap: 14px; }
+.next-step { display: flex; gap: 16px; padding: 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; }
+.step-num { width: 32px; height: 32px; background: #C9A84C; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.step-title { font-size: 14px; font-weight: 700; color: #1e3a5f; margin-bottom: 4px; }
+.step-detail { font-size: 13px; color: #6B7280; line-height: 1.6; }
+
+/* ── Footer ── */
+.report-footer { background: #0f172a; color: #94a3b8; padding: 24px 32px; margin-top: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.footer-brand { font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 4px; }
+.footer-url { font-size: 12px; color: #7db8d8; margin-bottom: 12px; }
+.footer-disclaimer { font-size: 11px; line-height: 1.7; color: #64748b; }
 </style>
-
 </head>
 <body>
-<div class="page">
+<div class="report-wrap">
 
-  <div class="header">
-    <div class="header-brand">Layer8 Franchise Evaluation Suite &nbsp;|&nbsp; FOE Report</div>
-    <div class="header-title">Anytime Fitness</div>
-    <div class="header-sub">Fitness / Health Club</div>
-    <div style="margin-top: 16px;">
-      <span class="score-badge">7.1</span>
-      <span class="score-label">ADEQUATE</span>
-    </div>
-  </div>
-
-  <div class="rec-banner" style="background:#2e7d32;">
-    Layer8 Recommendation: BUY
-  </div>
-
-  <div class="card">
-    <div class="card-title">Investment Summary</div>
-    <div class="kv-grid">
-      <div class="kv-item">
-        <div class="kv-label">Investment Range</div>
-        <div class="kv-value">$459,000 – $908,000</div>
-      </div>
-      <div class="kv-item">
-        <div class="kv-label">Franchise Fee</div>
-        <div class="kv-value">$42,500</div>
-      </div>
-      <div class="kv-item">
-        <div class="kv-label">Avg Unit Revenue</div>
-        <div class="kv-value">$395,000</div>
-        <div class='kv-note'>Item 19 Disclosed</div>
-      </div>
-      <div class="kv-item">
-        <div class="kv-label">Est. Payback Period</div>
-        <div class="kv-value">14.8 years</div>
+<div class="report-header">
+  <div class="header-inner">
+    <div class="header-meta">Layer8 Franchise Evaluation Suite &nbsp;|&nbsp; Franchise Opportunity Evaluation</div>
+    <div class="header-name">Anytime Fitness</div>
+    <div class="header-category">Fitness / Health Club</div>
+    <div class="header-date">Assessment Date: April 29, 2026</div>
+    <div class="score-row">
+      <div class="big-score" style="color:#059669;">7.14</div>
+      <div class="score-meta">
+        <div class="score-label-text" style="color:#059669;">ADEQUATE</div>
+        <div class="score-sub">out of 10.00 &nbsp;|&nbsp; 8 domains &nbsp;|&nbsp; 40 criteria</div>
       </div>
     </div>
   </div>
-
-  <div class="card">
-    <div class="card-title">Item 19 Disclosure Status</div>
-    <div class="item19-present">
-          <div class="item19-title">✓ Item 19 Financial Performance Representation: PRESENT</div>
-          <div>Average unit revenue: <strong>$395,000</strong>
-          | Payback: <strong>14.8 years</strong>
+  <div class="rec-banner" style="background:#059669;">
+    <span>&#9654; Layer8 Recommendation: BUY</span>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-label">Total Investment</div>
+      <div class="kpi-value">$459,000 – $908,000</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Franchise Fee</div>
+      <div class="kpi-value">$42,500</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Royalty Structure</div>
+      <div class="kpi-value" style="font-size:14px;">$699/mo fixed</div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 2 &nbsp; Item 19 Financial Performance Status</div>
+  <div class="callout-green">
+    <div class="callout-icon">&#10003;</div>
+    <div>
+      <div class="callout-head">Item 19 Financial Performance Representation: DISCLOSED</div>
+      <div class="callout-body">This franchisor provides financial performance data in the FDD. The figures below are sourced from the Item 19 disclosure and represent reported averages across surveyed units. Use these figures as your baseline for investment modeling, and validate with direct franchisee interviews.</div>
+    </div>
+  </div>
+  
+        <div class="stat-trio">
+          <div class="stat-box">
+            <div class="stat-label">Avg Unit Revenue</div>
+            <div class="stat-val">$395,000</div>
+            <div class="stat-sub">Item 19 Disclosed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Profit Margin</div>
+            <div class="stat-val">16.5%</div>
+            <div class="stat-sub">Avg profit: $69,516</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Est. Payback</div>
+            <div class="stat-val">14.8 yrs</div>
+            <div class="stat-sub">Based on disclosed data</div>
           </div>
         </div>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 3 &nbsp; Executive Summary</div>
+  <div class="exec-summary">
+    <p>Anytime Fitness scores 7.14/10 (ADEQUATE), indicating a solid franchise opportunity with generally positive fundamentals and specific areas that merit closer review before committing.</p>
+    <p>The strongest dimension is <strong>FDD Quality & Transparency</strong> (8.2/10), where the franchise demonstrates exceptional performance that differentiates it competitively. The dimension with the most room for improvement is <strong>Exit & Transfer Provisions</strong> (6.4/10), which warrants careful review while not representing a material barrier to investment.</p>
+    <p>Investment thesis: The Anytime Fitness franchise discloses a 14.8-year estimated payback on a $459,000–$908,000 investment, backed by Item 19 financial data — providing a verifiable basis for investment modeling that many competing franchises do not offer.</p>
   </div>
+</div><div class="section"><div class="section-title">&#167; 4 &nbsp; Domain Risk Register</div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">FDD Quality & Transparency</div>
+          <div class="domain-meta">
+            <span class="domain-weight">15%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">8.2 &nbsp;STRONG</span>
+          </div>
+        </div>
+        <div class="domain-desc">Quality and completeness of FDD disclosure — the most important signal of franchisor integrity. Item 19 is scored at double weight.</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Item 19 Financial Performance Disclosure</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Item 19 present: $395,000 average revenue, 16.5% profit margin disclosed.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Financial data available; model against your specific location assumptions.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">FDD Completeness & Clarity</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">22 years franchising; Item 21 financials: audited.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Long history + audited financials = high FDD credibility.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Litigation History (Items 3 & 4)</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">No litigation disclosed in Items 3 or 4. Clean legal record.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Clean record supports franchisor credibility and reduces legal risk exposure.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Franchisee Contact Transparency (Item 20)</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Item 20 covers 2,365 total franchise units with contact information.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Large contact list provides ample validation opportunities.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Material Change Disclosure</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">System growing (+120 net units over 3 years); FDD stability signal.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Stable/growing system — no material adverse changes indicated.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">FDD quality is a clear strength. The franchisor provides transparent, complete disclosure — including the critical Item 19 financial performance representation. This level of transparency is a positive differentiator and supports confident investment underwriting.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Franchisee Satisfaction & Support</div>
+          <div class="domain-meta">
+            <span class="domain-weight">15%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">7.6 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">How do current and former franchisees rate their experience? The most honest signal in any FDD evaluation.</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Franchisee Satisfaction Scores</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Franchisee satisfaction index: 7.5/10 based on published survey and review data.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">High satisfaction is a strong leading indicator of system health.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Former Franchisee Attrition Rate</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Annual franchisee attrition: 3.7% (industry average ~5–7%).</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Below-average attrition signals franchisee confidence in their investment.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Training Quality & Completeness</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Initial training: 1 week(s). Ongoing support via field visits and franchisee advisory programs.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Limited training requires strong self-sufficiency; plan for extended ramp-up.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Technology & Systems Support</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Technology and systems: brand #1 in category; satisfaction 7.5/10 used as quality proxy.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Strong technology platform — should not be a day-1 operational burden.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Marketing Support Effectiveness</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Marketing fund effectiveness: #1 brand in category; national advertising fund allocation relevant to franchisee ROI.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Proven marketing programs with documented ROI for franchisees.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Franchisee satisfaction is mixed. The 7.5/10 satisfaction index and 3.7% attrition rate are near industry average. Conduct direct interviews with at least 10 current franchisees to understand specific support quality and any recurring concerns.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Candidate Fit Assessment</div>
+          <div class="domain-meta">
+            <span class="domain-weight">5%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">7.6 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">How well does this opportunity match a typical buyer's profile — skills, capital, and lifestyle expectations?</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Owner Involvement Required</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Semi-absentee model: yes — proven manager-run model.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Semi-absentee model supports portfolio investing or gradual employment transition.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Prior Experience Required</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Prior industry experience not required; franchise training program provides foundational operational knowledge.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Open candidate profile broadens buyer pool and reduces qualification barriers.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Capital Requirements Accessibility</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">5</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Investment: $459,000–$908,000 (midpoint $683,500); SBA financing eligibility varies by location and credit profile.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Significant capital required; expect $100K+ liquid and strong credit profile needed.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Lifestyle Compatibility</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Lifestyle compatibility based on operational hours, owner involvement intensity, and schedule demands.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Lifestyle-compatible operation; does not require nights, weekends, or 24/7 availability.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Scalability to Multi-Unit</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">35% of franchisees operate multiple units; area development options available.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Proven multi-unit model supports portfolio growth strategy; area development available.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Candidate fit is adequate for buyers with the right profile. The $459,000–$908,000 investment range and operational requirements limit the buyer universe somewhat; ensure honest self-assessment before proceeding.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Market & Competitive Position</div>
+          <div class="domain-meta">
+            <span class="domain-weight">7%</span>
+            <span class="domain-score-badge" style="background:#D1FAE5;color:#059669;">7.2 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">How competitive is the franchise category and where does this brand rank within it?</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Brand Recognition & Strength</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">10</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Brand ranked #1 in category by system size and consumer awareness.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">#1 brand provides maximum consumer recognition and marketing leverage.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Category Growth Trend</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Category growing at approximately 4.2% annually.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Steady growth supports long-term investment thesis.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Competitive Differentiation</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Competitive differentiation assessed via brand position (#1) and proprietary model characteristics.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Meaningful differentiation exists; understand specific reasons customers choose this brand.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Market Saturation Risk</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">5</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">System size: 2,365 total units; saturation risk assessed against category penetration.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">High saturation — prime territories may be limited or already taken.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Recession Resistance</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Recession resistance assessed based on category spending behavior in economic downturns.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Some consumer spending sensitivity; maintain adequate operating reserves.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Market position is adequate. Brand rank #1 provides reasonable recognition, but the competitive landscape requires careful territory analysis. Category growth of 4.2% annually supports the long-term investment thesis.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Unit Economics</div>
+          <div class="domain-meta">
+            <span class="domain-weight">25%</span>
+            <span class="domain-score-badge" style="background:#FEF3C7;color:#B45309;">6.8 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">Financial viability of a single franchise unit — the core investment thesis. Highest-weighted domain.</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Average Unit Volume (AUV)</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">$395,000 avg revenue vs. $683,500 mid-point investment (ratio: 0.58×).</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Solid revenue relative to investment.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Payback Period</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Estimated payback: 14.8 years (based on disclosed Item 19 data).</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">12–18 year payback requires a long holding period.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Profit Margin</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">16.5% average profit margin disclosed in Item 19.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">15–20% margin is above average; competitive economics.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Fee Structure Competitiveness</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Fixed monthly royalty: $699/month — predictable cost structure regardless of revenue.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Fixed or sub-5% royalty is franchisee-favorable; costs are predictable.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Investment Range & Clarity</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEE2E2;color:#EA580C;font-weight:800;font-size:13px;">4</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Investment range: $459,000 – $908,000 ($449,000 spread).</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Wide range creates uncertainty; cost overrun risk is elevated.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Unit economics are adequate but leave limited margin for error. A 14.8-year payback requires a long holding period — ensure your capital planning accounts for at least 2 years of operating losses before breakeven.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Franchisor Financial Health</div>
+          <div class="domain-meta">
+            <span class="domain-weight">15%</span>
+            <span class="domain-score-badge" style="background:#FEF3C7;color:#B45309;">6.8 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">Financial stability and growth trajectory of the franchisor — are they a going concern with a growing system?</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Financial Statement Quality (Item 21)</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Item 21: audited; franchisor profitable.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Audited + profitable financials confirm franchisor as a stable going concern.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">System Size & Growth Trajectory</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">5</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">System growing: +120 net units over 3 years (~1.7%/yr annualized).</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Flat growth; review new unit pipeline vs. closure patterns.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Company-Owned vs Franchised Ratio</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">4 company-owned unit(s) (0.2% of system).</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Some company ownership shows franchisor has operational skin in the game.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Franchisor Support Infrastructure</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">1 week(s) initial training; franchisee satisfaction score: 7.5/10.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Training meets minimum standards; ask franchisees specifically about post-opening support.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Ownership & Leadership Stability</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">8</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">22 years franchising history; ownership and leadership continuity relevant to long-term reliability.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Long-tenured ownership provides system stability and deep category expertise.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Franchisor health is adequate. The growing system (+120 net units) warrants monitoring. Verify that support staffing has scaled proportionally with system size.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Territorial Rights & Protection</div>
+          <div class="domain-meta">
+            <span class="domain-weight">10%</span>
+            <span class="domain-score-badge" style="background:#FEF3C7;color:#B45309;">6.6 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">Quality of territorial protection — can the franchisor open a competitor next door or sell online in your market?</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Territory Definition & Protection</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Territory exclusivity and definition: adequate protection with some limitations to review.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Review territory carve-outs carefully in the franchise agreement.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Territory Size & Population</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Territory size and addressable population: adequate protection with some limitations to review.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Review territory carve-outs carefully in the franchise agreement.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Online & Alternative Channel Rights</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Online and alternative channel rights: adequate protection with some limitations to review.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Review territory carve-outs carefully in the franchise agreement.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Right of First Refusal for Expansion</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Right of first refusal for expansion: adequate protection with some limitations to review.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Review territory carve-outs carefully in the franchise agreement.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Territory Encroachment History</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Territory encroachment history: adequate protection with some limitations to review.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Review territory carve-outs carefully in the franchise agreement.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Territorial rights are adequate but warrant careful legal review. Understand all carve-outs, alternative channel rights, and the specific enforcement mechanism before signing the franchise agreement.</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-header">
+          <div class="domain-title">Exit & Transfer Provisions</div>
+          <div class="domain-meta">
+            <span class="domain-weight">8%</span>
+            <span class="domain-score-badge" style="background:#FEF3C7;color:#B45309;">6.4 &nbsp;ADEQUATE</span>
+          </div>
+        </div>
+        <div class="domain-desc">How easily can a franchisee exit — transfer, sell, or close? Poor exit terms are a silent risk most buyers ignore.</div>
+        <table class="criteria-table">
+          <thead>
+            <tr>
+              <th>Criterion</th><th style="text-align:center;">Score</th>
+              <th>Finding</th><th>Implication</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Transfer Rights & Fees</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Transfer rights and fees: standard terms; review franchise agreement language carefully.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Standard terms are acceptable; confirm transfer fees and cure period lengths.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Renewal Terms & Conditions</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#D1FAE5;color:#059669;font-weight:800;font-size:13px;">7</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Renewal terms and conditions: standard terms; review franchise agreement language carefully.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Standard terms are acceptable; confirm transfer fees and cure period lengths.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Termination Provisions</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Termination provisions and cure periods: standard terms; review franchise agreement language carefully.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Standard terms are acceptable; confirm transfer fees and cure period lengths.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Post-Term Non-Compete</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Post-term non-compete scope: standard terms; review franchise agreement language carefully.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Standard terms are acceptable; confirm transfer fees and cure period lengths.</td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Dispute Resolution</td>
+            <td style="text-align:center;width:7%;">
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#FEF3C7;color:#B45309;font-weight:800;font-size:13px;">6</span>
+            </td>
+            <td style="font-size:12px;color:#374151;width:35%;">Dispute resolution process: standard terms; review franchise agreement language carefully.</td>
+            <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Standard terms are acceptable; confirm transfer fees and cure period lengths.</td>
+          </tr></tbody>
+        </table>
+        <div class="domain-narrative">Exit provisions are standard. Confirm key terms including transfer fees, cure period lengths, and renewal conditions with a franchise attorney before signing. Standard terms are acceptable but should be fully understood.</div>
+      </div></div>
+<div class="section">
+  <div class="section-title">&#167; 5 &nbsp; FDD Item Analysis</div>
 
-  <div class="card">
-    <div class="card-title">Domain Scoring Summary</div>
-    <table>
-      <thead>
-        <tr><th>Domain</th><th style="text-align:center;">Score</th><th>Rating</th></tr>
-      </thead>
+  <div class="fdd-item-block">
+    <div class="fdd-item-header">Item 5 &mdash; Fees</div>
+    <table class="fdd-table">
+      <thead><tr><th>Fee Component</th><th>Amount</th><th>Layer8 Commentary</th></tr></thead>
       <tbody>
-        
         <tr>
-          <td>FDD Quality & Transparency</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">8.2</td>
-          <td><span class="pill pill-strong">STRONG</span></td>
+          <td>Initial Franchise Fee</td>
+          <td><strong>$42,500</strong></td>
+          <td>&#9632; One-time fee due at signing; $42,500 is within the typical $35K–$55K category range</td>
         </tr>
         <tr>
-          <td>Unit Economics</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">6.8</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
+          <td>Ongoing Royalty</td>
+          <td><strong>$699/mo</strong></td>
+          <td>&#9989; Below category average — franchisee-favorable</td>
         </tr>
         <tr>
-          <td>Franchisor Financial Health</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">6.8</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
+          <td>Royalty Note</td>
+          <td colspan="2" style="color:#6B7280;font-size:12px;">Fixed $699/month — franchisee-friendly</td>
         </tr>
         <tr>
-          <td>Territorial Rights & Protection</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">6.6</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
-        </tr>
-        <tr>
-          <td>Franchisee Satisfaction & Support</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">7.6</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
-        </tr>
-        <tr>
-          <td>Exit & Transfer Provisions</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">6.4</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
-        </tr>
-        <tr>
-          <td>Market & Competitive Position</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">7.2</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
-        </tr>
-        <tr>
-          <td>Candidate Fit Assessment</td>
-          <td style="text-align:center; font-weight:700; font-size:16px;">7.6</td>
-          <td><span class="pill pill-adequate">ADEQUATE</span></td>
+          <td>Marketing Fee</td>
+          <td><strong>$600/mo</strong></td>
+          <td>&#9632; $600/month fixed</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="card">
-    <div class="card-title">Key Strengths</div>
-    <ul style="padding-left: 18px; line-height: 2;"><li class="strength">▲ FDD Quality & Transparency — 8.2</li><li class="strength">▲ Franchisee Satisfaction & Support — 7.6</li><li class="strength">▲ Candidate Fit Assessment — 7.6</li></ul>
+  <div class="fdd-item-block">
+    <div class="fdd-item-header">Item 7 &mdash; Estimated Initial Investment</div>
+    <table class="fdd-table">
+      <thead><tr><th>Investment Component</th><th>Amount</th><th>Layer8 Commentary</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Investment Range (Total)</td>
+          <td><strong>$459,000 – $908,000</strong></td>
+          <td>&#9632; Near category average — typical for this franchise type</td>
+        </tr>
+        <tr>
+          <td>Midpoint Investment</td>
+          <td><strong>$683,500</strong></td>
+          <td>&#9632; Category average: $650,000 — use midpoint for base-case financial modeling</td>
+        </tr>
+        <tr>
+          <td>Range Spread</td>
+          <td><strong>$449,000 (98%)</strong></td>
+          <td>&#9632; Moderate spread — confirm working capital requirements</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="card">
-    <div class="card-title">Key Concerns</div>
-    <ul style="padding-left: 18px; line-height: 2;"><li class="concern">▼ Franchisor Financial Health — 6.8</li><li class="concern">▼ Territorial Rights & Protection — 6.6</li><li class="concern">▼ Exit & Transfer Provisions — 6.4</li></ul>
+  <div class="fdd-item-block">
+    <div class="fdd-item-header">Item 19 &mdash; Financial Performance Representations</div>
+    <table class="fdd-table">
+      <thead><tr><th>Metric</th><th>Disclosed Data</th><th>Layer8 Commentary</th></tr></thead>
+      <tbody>
+          <tr><td>Average Unit Revenue</td><td><strong>$395,000</strong></td><td>&#9989; Franchisor-verified figure</td></tr>
+          <tr><td>Average Profit Margin</td><td><strong>16.5%</strong></td><td>&#9989; Strong margin for category</td></tr>
+          <tr><td>Average Profit</td><td><strong>$69,516</strong></td><td>&#9632; Disclosed in Item 19</td></tr></tbody>
+    </table>
   </div>
 
-  
-    <div class="footer">
-      <strong>Layer8 Disclaimer:</strong> This report is produced by the Layer8 Franchise Evaluation Suite
-      using publicly available FDD data, third-party research, and proprietary scoring models. It is provided
-      for informational and consultative purposes only and does not constitute legal, financial, or investment
-      advice. Franchise investment involves significant risk. All prospective franchisees should review the
-      complete FDD with a qualified franchise attorney and consult a financial advisor before making any
-      investment decision. Layer8TechGroup makes no warranty as to the accuracy, completeness, or timeliness
-      of any FDD data presented herein. Past system performance does not guarantee future unit results.
+  <div class="fdd-item-block">
+    <div class="fdd-item-header">Item 20 &mdash; Franchisee Information</div>
+    <table class="fdd-table">
+      <thead><tr><th>Metric</th><th>Data</th><th>Layer8 Commentary</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Total System Units</td>
+          <td><strong>2,365</strong> (2,361 franchised, 4 co-owned)</td>
+          <td>&#9632; System size indicates franchisor maturity and infrastructure investment</td>
+        </tr>
+        <tr>
+          <td>Net Unit Change (3yr)</td>
+          <td><strong>+120</strong></td>
+          <td>&#9989; Growing system — positive demand signal</td>
+        </tr>
+        <tr>
+          <td>Annual Attrition Rate</td>
+          <td><strong>3.7%</strong></td>
+          <td>&#9989; Below industry average — healthy retention</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="fdd-item-block">
+    <div class="fdd-item-header">Items 3 &amp; 4 &mdash; Litigation &amp; Bankruptcy</div>
+    <table class="fdd-table">
+      <thead><tr><th>Metric</th><th>Data</th><th>Layer8 Commentary</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Litigation Disclosed</td>
+          <td><strong>0 matter(s)</strong> (none severity)</td>
+          <td>&#9989; Clean legal record</td>
+        </tr>
+        <tr>
+          <td>Bankruptcy History</td>
+          <td><strong>None disclosed</strong></td>
+          <td>&#9989; No bankruptcy history disclosed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 6 &nbsp; Red Flags</div>
+  <div class="callout-red" style="margin-bottom:16px;">
+    <div class="callout-icon">&#9888;</div>
+    <div>
+      <div class="callout-head">Items Requiring Attention Before Signing — 1 criterion/criteria scored below 5.0</div>
+      <div class="callout-body">The following items scored below 5.0 and represent material risks that should be investigated and resolved before making an investment decision. These are not necessarily deal-breakers, but they require specific answers from the franchisor and/or existing franchisees.</div>
     </div>
+  </div>
+  <div class="flag-list">
+      <div class="flag-item">
+        <div class="flag-header">
+          <span class="flag-cid">UE_05</span>
+          <span class="flag-area">Investment Range & Clarity</span>
+          <span class="flag-score" style="background:#FEE2E2;color:#DC2626;">4/10</span>
+        </div>
+        <div class="flag-finding">&#9656; Investment range: $459,000 – $908,000 ($449,000 spread).</div>
+        <div class="flag-action">&#128204; Recommended action: Wide range creates uncertainty; cost overrun risk is elevated.</div>
+      </div></div>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 7 &nbsp; Questions to Ask the Franchisor</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:20px;">The following questions are tailored to Anytime Fitness's specific FDD profile, scoring, and category. Use these in your franchisor discovery call and in direct conversations with existing franchisees via Item 20 contacts.</p>
+
+  <div class="question-group">
+    <div class="question-group-header">Financial Questions</div>
     
+          <div class="question-item">
+            <div class="question-num">1</div>
+            <div class="question-content">
+              <div class="question-text">What percentage of franchisees achieve or exceed the $395,000 average unit revenue disclosed in Item 19?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Averages can be skewed by top performers. Understanding the distribution — what percentage hit average — gives a more realistic basis for financial planning.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">2</div>
+            <div class="question-content">
+              <div class="question-text">Does the $699/month fixed royalty escalate over the franchise term, and if so, by how much and how often?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Fixed royalties can step up over a 10-year term. A royalty increase from $699 to $999/month would represent a significant impact on unit profitability.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">3</div>
+            <div class="question-content">
+              <div class="question-text">What is the typical breakeven timeline for a new unit, and what cash reserve do you recommend franchisees maintain in Year 1?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Pre-breakeven cash requirements are often understated in Item 7. Understanding actual early-stage cash burn prevents working capital shortfalls in the critical first year.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">4</div>
+            <div class="question-content">
+              <div class="question-text">What percentage of franchisees are currently at or above the average unit volume, and what separates top performers from the median?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Revenue averages can be skewed by outliers. Understanding the distribution reveals whether most franchisees can realistically achieve the reported average.</div>
+            </div>
+          </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-group-header">Operations Questions</div>
+    
+          <div class="question-item">
+            <div class="question-num">1</div>
+            <div class="question-content">
+              <div class="question-text">Beyond the 1-week initial training, what ongoing training, field support visits, and skill development is provided?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Limited initial training increases dependence on ongoing support. Understanding the full training roadmap reveals whether the franchisor has a comprehensive development program.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">2</div>
+            <div class="question-content">
+              <div class="question-text">What technology platforms do franchisees use day-to-day — POS, scheduling, CRM, reporting — and what are the monthly technology costs?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Technology costs are frequently underrepresented in Item 7 investment estimates. For a $459,000–$908,000 investment, ongoing SaaS costs of $500–$1,500/month are significant.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">3</div>
+            <div class="question-content">
+              <div class="question-text">How many dedicated franchise support staff are there, what is the franchisor-to-franchisee ratio, and what is the typical response time for operational issues?</div>
+              <div class="question-why"><strong>Why this matters:</strong> With 2,365 units in the system, support staff ratios reveal whether the franchisor has invested proportionally in franchisee success infrastructure.</div>
+            </div>
+          </div>
+  </div>
+
+  <div class="question-group">
+    <div class="question-group-header">Support &amp; Territory Questions</div>
+    
+          <div class="question-item">
+            <div class="question-num">1</div>
+            <div class="question-content">
+              <div class="question-text">Can you provide examples of how territorial disputes have been resolved in the past, and what recourse does a franchisee have if encroachment occurs?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Even strong territorial definitions can be inadequately enforced. Understanding the dispute resolution track record reveals the franchisor's commitment to territorial integrity.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">2</div>
+            <div class="question-content">
+              <div class="question-text">What is the transfer process if I want to sell my franchise in 5–10 years, what is the transfer fee, and does the franchisor have right of first refusal?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Your exit determines your realized return. The transfer fee, approval process, and ROFR terms set the terms of your eventual liquidity — often more important than entry terms for a $459,000–$908,000 investment.</div>
+            </div>
+          </div>
+          <div class="question-item">
+            <div class="question-num">3</div>
+            <div class="question-content">
+              <div class="question-text">How many disputes were filed between franchisees and the franchisor in the past 3 years, and how were they resolved?</div>
+              <div class="question-why"><strong>Why this matters:</strong> Dispute frequency and resolution quality are leading indicators of the actual working relationship between franchisor and franchisee network — not the relationship described in marketing materials.</div>
+            </div>
+          </div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 8 &nbsp; Investment Scenario Analysis</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Based on Item 19 disclosed data. Investment midpoint used: $683,500 ($459,000–$908,000 range). Profit calculated at 16.5% disclosed margin. Scenarios reflect unit revenue at different performance percentiles.</p>
+  <table class="fdd-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th style="text-align:right;">Annual Revenue</th>
+        <th style="text-align:right;">Estimated Profit</th>
+        <th style="text-align:right;">Payback Period</th>
+        <th style="text-align:right;">Est. Monthly Cash Flow</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style="background:#FFFBEB;">
+          <td><strong>Conservative</strong><br><span style="font-size:11px;color:#6B7280;">25th percentile performance — 80% of average unit volume</span></td>
+          <td style="text-align:right;font-weight:700;">$316,000</td>
+          <td style="text-align:right;font-weight:700;">$52,140<br><span style="font-size:11px;color:#6B7280;">16.5% margin</span></td>
+          <td style="text-align:right;font-weight:700;">13.1 yrs</td>
+          <td style="text-align:right;font-weight:700;">$4,345</td>
+        </tr>
+        <tr style="background:#F0FDF4;">
+          <td><strong>Base Case</strong><br><span style="font-size:11px;color:#6B7280;">Median performance — average unit volume as disclosed</span></td>
+          <td style="text-align:right;font-weight:700;">$395,000</td>
+          <td style="text-align:right;font-weight:700;">$65,175<br><span style="font-size:11px;color:#6B7280;">16.5% margin</span></td>
+          <td style="text-align:right;font-weight:700;">10.5 yrs</td>
+          <td style="text-align:right;font-weight:700;">$5,431</td>
+        </tr>
+        <tr style="background:#F0FDF4;">
+          <td><strong>Optimistic</strong><br><span style="font-size:11px;color:#6B7280;">75th percentile performance — 120% of average unit volume</span></td>
+          <td style="text-align:right;font-weight:700;">$474,000</td>
+          <td style="text-align:right;font-weight:700;">$78,210<br><span style="font-size:11px;color:#6B7280;">16.5% margin</span></td>
+          <td style="text-align:right;font-weight:700;">8.7 yrs</td>
+          <td style="text-align:right;font-weight:700;">$6,518</td>
+        </tr></tbody>
+  </table>
+  <p style="font-size:11px;color:#9CA3AF;margin-top:12px;">&#9888; Scenario analysis is illustrative only. Actual results vary by location, market, operator experience, and local competition. All figures are pre-debt service and pre-owner compensation. Consult a financial advisor and conduct independent market analysis before making any investment decision.</p>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 9 &nbsp; Category Comparable Context</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">How Anytime Fitness compares to typical franchises in its category: <strong>Fitness / Health Club</strong>. Category averages are based on published industry research and Layer8 benchmark data.</p>
+  <table class="fdd-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Anytime Fitness</th>
+        <th>Category Average</th>
+        <th>Comparison</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total Investment (midpoint)</td>
+        <td><strong>$683,500</strong></td>
+        <td>$650,000</td>
+        <td>&#9632; Similar</td>
+      </tr>
+      <tr>
+        <td>Royalty Structure</td>
+        <td><strong>$699/mo fixed</strong></td>
+        <td>N/A — fixed model</td>
+        <td>&#9989; Better — fixed monthly vs % royalty</td>
+      </tr>
+      <tr>
+        <td>Annual Franchisee Attrition</td>
+        <td><strong>3.7%</strong></td>
+        <td>6.5%</td>
+        <td>&#9989; Better</td>
+      </tr>
+      <tr>
+        <td>Item 19 Disclosure</td>
+        <td><strong>Yes — provided</strong></td>
+        <td>~50% of franchisors provide it</td>
+        <td>&#9989; Better</td>
+      </tr>
+      <tr>
+        <td>Years Franchising</td>
+        <td><strong>22 years</strong></td>
+        <td>Category typically 8–15 yrs</td>
+        <td>&#9989; Better — proven long track record</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="section">
+  <div class="section-title">&#167; 10 &nbsp; Recommended Next Steps</div>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Action items based on Layer8 recommendation: <strong>BUY</strong> for Anytime Fitness (7.14/10).</p>
+  <div class="next-steps-list">
+      <div class="next-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Request the current FDD directly from the franchisor</div>
+          <div class="step-detail">The current-year FDD supersedes any marketing materials or prior versions. Request it in writing and confirm the date of registration in your state.</div>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Contact 5+ current franchisees from the Item 20 contact list</div>
+          <div class="step-detail">Ask specifically about Year 1 revenue vs. expectations, quality of franchisor support, and what they would do differently. Also contact 2–3 former franchisees listed in Item 20.</div>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Engage a qualified franchise attorney for full FDD review</div>
+          <div class="step-detail">Budget $2,500–$5,000 for an attorney with franchise-specific experience. Have them review the franchise agreement for renewal terms, transfer restrictions, and termination clauses specifically.</div>
+        </div>
+      </div></div>
+</div>
+<div class="report-footer">
+  <div class="footer-brand">Layer8 Tech Group &nbsp;|&nbsp; Franchise Evaluation Suite</div>
+  <div class="footer-url">franchise.layer8techgroup.com &nbsp;|&nbsp; layer8techgroup.com</div>
+  <div class="footer-disclaimer">
+    <strong>Disclaimer:</strong> This report is produced by the Layer8 Franchise Evaluation Suite using publicly available FDD
+    data, third-party research, and proprietary scoring models incorporating both quantitative FDD data and qualitative
+    analyst assessment. It is provided for informational and consultative purposes only and does not constitute legal,
+    financial, or investment advice. Franchise investment involves significant risk and is not suitable for all investors.
+    All prospective franchisees should review the complete, current-year FDD with a qualified franchise attorney and consult
+    a financial advisor before making any investment decision. Layer8TechGroup makes no warranty as to the accuracy,
+    completeness, or timeliness of any FDD data presented herein. Past system performance does not guarantee future unit results.
+    Generated: April 29, 2026
+  </div>
+</div>
 </div>
 </body>
 </html>

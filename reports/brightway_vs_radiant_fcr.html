@@ -3,320 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FCR — Brightway Insurance vs Radiant Waxing</title>
-  
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f6f9;
-    color: #1a2332;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .page { max-width: 1000px; margin: 0 auto; padding: 32px 24px; }
+  <title>FCR — Brightway Insurance vs Radiant Waxing | Layer8</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 1.65; color: #1F2937; background: #F3F4F6;
+}
+.report-wrap { max-width: 1020px; margin: 0 auto; padding: 0 0 40px; }
 
-  /* Header */
-  .header {
-    background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 100%);
-    color: #fff;
-    padding: 32px 36px;
-    border-radius: 8px 8px 0 0;
-  }
-  .header-brand { font-size: 11px; letter-spacing: 2px; color: #7db8d8;
-                  text-transform: uppercase; margin-bottom: 6px; }
-  .header-title { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
-  .header-sub { font-size: 14px; color: #a8c4d8; }
-  .score-badge {
-    display: inline-block;
-    background: #c9a227;
-    color: #fff;
-    font-size: 36px;
-    font-weight: 800;
-    padding: 8px 20px;
-    border-radius: 6px;
-    margin-top: 12px;
-  }
-  .score-label {
-    display: inline-block;
-    margin-left: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    vertical-align: middle;
-    color: #c9a227;
-    letter-spacing: 1px;
-  }
+/* ── Header ── */
+.report-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; }
+.header-inner { padding: 32px 36px 24px; }
+.header-meta { font-size: 11px; letter-spacing: 2px; color: #7db8d8; text-transform: uppercase; margin-bottom: 10px; }
+.header-name { font-size: 30px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.header-category { font-size: 14px; color: #93c5fd; margin-bottom: 4px; }
+.header-date { font-size: 12px; color: #64748b; margin-bottom: 20px; }
+.score-row { display: flex; align-items: center; gap: 20px; }
+.big-score { font-size: 52px; font-weight: 900; line-height: 1; }
+.score-label-text { font-size: 16px; font-weight: 800; letter-spacing: 1px; }
+.score-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+.rec-banner { padding: 14px 36px; font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
+.kpi-row { display: flex; background: rgba(255,255,255,0.06); border-top: 1px solid rgba(255,255,255,0.1); }
+.kpi-box { flex: 1; padding: 16px 24px; border-right: 1px solid rgba(255,255,255,0.1); }
+.kpi-box:last-child { border-right: none; }
+.kpi-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #7db8d8; margin-bottom: 6px; }
+.kpi-value { font-size: 16px; font-weight: 700; color: #fff; }
 
-  /* Recommendation banner */
-  .rec-banner {
-    padding: 14px 24px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #fff;
-    border-radius: 0;
-  }
+/* ── Section wrappers ── */
+.section { background: #fff; margin: 16px 0 0; padding: 28px 32px; border-top: 3px solid #1e3a5f; }
+.section-title { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #1e3a5f; border-bottom: 2px solid #C9A84C; padding-bottom: 8px; margin-bottom: 20px; }
 
-  /* Cards */
-  .card {
-    background: #fff;
-    border-radius: 6px;
-    padding: 24px;
-    margin-top: 20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  }
-  .card-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #0d2137;
-    border-bottom: 2px solid #c9a227;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-  }
+/* ── Callouts ── */
+.callout-green { display: flex; gap: 14px; background: #F0FDF4; border: 1px solid #BBF7D0; border-left: 4px solid #059669; border-radius: 0 6px 6px 0; padding: 16px; margin-bottom: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-red { display: flex; gap: 14px; background: #FFF1F2; border: 1px solid #FECDD3; border-left: 4px solid #DC2626; border-radius: 0 6px 6px 0; padding: 16px; margin-bottom: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-icon { font-size: 22px; flex-shrink: 0; }
+.callout-head { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.callout-green .callout-head { color: #065F46; }
+.callout-red .callout-head { color: #DC2626; }
+.callout-body { font-size: 13px; line-height: 1.7; color: #374151; }
 
-  /* Tables */
-  table { width: 100%; border-collapse: collapse; }
-  th {
-    background: #0d2137;
-    color: #fff;
-    padding: 8px 12px;
-    text-align: left;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-  }
-  td { padding: 8px 12px; border-bottom: 1px solid #eef0f4; }
-  tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: #f8fafc; }
+/* ── Stat trio ── */
+.stat-trio { display: flex; gap: 12px; margin-top: 12px; }
+.stat-box { flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 14px 16px; text-align: center; }
+.stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 8px; }
+.stat-val { font-size: 22px; font-weight: 800; color: #1e3a5f; }
+.stat-sub { font-size: 11px; color: #9CA3AF; margin-top: 4px; }
 
-  /* Score pills */
-  .pill {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .pill-exceptional { background: #1a7a4a; }
-  .pill-strong      { background: #2e7d32; }
-  .pill-adequate    { background: #f57c00; }
-  .pill-review      { background: #d84315; }
-  .pill-risk        { background: #b71c1c; }
+/* ── Executive summary ── */
+.exec-summary { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 20px 24px; line-height: 1.8; }
+.exec-summary p { margin-bottom: 10px; font-size: 14px; color: #374151; }
+.exec-summary p:last-child { margin-bottom: 0; }
 
-  /* KV grid */
-  .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .kv-item { background: #f4f6f9; padding: 12px 16px; border-radius: 4px; }
-  .kv-label { font-size: 11px; color: #5a7a9a; text-transform: uppercase;
-              letter-spacing: 0.8px; margin-bottom: 4px; }
-  .kv-value { font-size: 18px; font-weight: 700; color: #0d2137; }
-  .kv-note { font-size: 11px; color: #6a8aaa; margin-top: 2px; }
+/* ── Domain cards ── */
+.domain-card { border: 1px solid #E5E7EB; border-radius: 6px; margin-bottom: 20px; overflow: hidden; }
+.domain-header { background: #1e3a5f; color: #fff; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.domain-title { font-size: 13px; font-weight: 700; }
+.domain-meta { display: flex; gap: 10px; align-items: center; }
+.domain-weight { font-size: 11px; color: #93c5fd; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 10px; }
+.domain-score-badge { font-size: 12px; font-weight: 700; padding: 3px 12px; border-radius: 10px; }
+.domain-desc { padding: 10px 18px; font-size: 12px; color: #6B7280; background: #F8FAFC; border-bottom: 1px solid #E5E7EB; }
+.criteria-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.criteria-table th { background: #F1F5F9; color: #374151; padding: 7px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid #E2E8F0; }
+.criteria-table td { padding: 9px 12px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+.criteria-table tr:last-child td { border-bottom: none; }
+.criteria-table tr:hover td { background: #F8FAFC; }
+.domain-narrative { padding: 12px 18px; font-size: 13px; color: #374151; background: #FAFBFC; border-top: 1px solid #E5E7EB; line-height: 1.75; }
 
-  /* Item 19 */
-  .item19-present { background: #e8f5e9; border-left: 4px solid #2e7d32;
-                    padding: 12px 16px; border-radius: 0 4px 4px 0; }
-  .item19-absent  { background: #fbe9e7; border-left: 4px solid #b71c1c;
-                    padding: 12px 16px; border-radius: 0 4px 4px 0; }
-  .item19-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
-  .item19-present .item19-title { color: #1b5e20; }
-  .item19-absent  .item19-title { color: #b71c1c; }
+/* ── FDD item blocks ── */
+.fdd-item-block { margin-bottom: 24px; border: 1px solid #E5E7EB; border-radius: 6px; overflow: hidden; }
+.fdd-item-header { background: #1e3a5f; color: #fff; padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.fdd-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.fdd-table th { background: #F1F5F9; padding: 8px 14px; text-align: left; font-size: 11px; font-weight: 700; color: #374151; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid #E2E8F0; }
+.fdd-table td { padding: 9px 14px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+.fdd-table tr:last-child td { border-bottom: none; }
 
-  /* Strength / concern lists */
-  .strength { color: #1a7a4a; font-weight: 600; }
-  .concern  { color: #b71c1c; font-weight: 600; }
+/* ── Red flags ── */
+.flag-list { display: flex; flex-direction: column; gap: 12px; }
+.flag-item { background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 6px; padding: 14px 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.flag-header { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.flag-cid { font-size: 10px; font-weight: 800; background: #DC2626; color: #fff; padding: 2px 8px; border-radius: 4px; }
+.flag-area { font-size: 13px; font-weight: 700; color: #1F2937; flex: 1; }
+.flag-score { padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.flag-finding { font-size: 13px; color: #374151; margin-bottom: 6px; }
+.flag-action { font-size: 12px; color: #6B7280; }
 
-  /* Comparison specifics */
-  .winner-cell { font-weight: 700; color: #1a7a4a; }
-  .loser-cell  { color: #888; }
-  .tie-cell    { color: #f57c00; }
-  .flag-absent { color: #b71c1c; font-weight: 700; }
-  .flag-present { color: #1a7a4a; font-weight: 700; }
+/* ── Questions ── */
+.question-group { margin-bottom: 24px; }
+.question-group-header { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1e3a5f; border-bottom: 1px solid #E5E7EB; padding-bottom: 6px; margin-bottom: 12px; }
+.question-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #F1F5F9; }
+.question-item:last-child { border-bottom: none; }
+.question-num { width: 24px; height: 24px; background: #1e3a5f; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.question-text { font-size: 13px; font-weight: 600; color: #1F2937; margin-bottom: 4px; }
+.question-why { font-size: 12px; color: #6B7280; line-height: 1.6; }
 
-  /* Footer */
-  .footer {
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid #dde2ea;
-    font-size: 11px;
-    color: #8a9ab8;
-    line-height: 1.6;
-  }
+/* ── Next steps ── */
+.next-steps-list { display: flex; flex-direction: column; gap: 14px; }
+.next-step { display: flex; gap: 16px; padding: 16px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; }
+.step-num { width: 32px; height: 32px; background: #C9A84C; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.step-title { font-size: 14px; font-weight: 700; color: #1e3a5f; margin-bottom: 4px; }
+.step-detail { font-size: 13px; color: #6B7280; line-height: 1.6; }
+
+/* ── Footer ── */
+.report-footer { background: #0f172a; color: #94a3b8; padding: 24px 32px; margin-top: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.footer-brand { font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 4px; }
+.footer-url { font-size: 12px; color: #7db8d8; margin-bottom: 12px; }
+.footer-disclaimer { font-size: 11px; line-height: 1.7; color: #64748b; }
 </style>
-
 </head>
 <body>
-<div class="page">
+<div class="report-wrap">
 
-  <div class="header">
-    <div class="header-brand">Layer8 Franchise Evaluation Suite &nbsp;|&nbsp; Franchise Comparison Report</div>
-    <div class="header-title">Brightway Insurance vs. Radiant Waxing</div>
-    <div class="header-sub">Insurance / Financial Services</div>
-  </div>
-
-  <div class="rec-banner" style="background:#1a7a4a;">
-    Overall Winner: Brightway Insurance &nbsp;(8.4 vs 4.7)
-  </div>
-
-  <div class="card">
-    <div class="card-title">Overall Score Comparison</div>
-    <table>
-      <thead>
-        <tr><th>Metric</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Overall Score</strong></td>
-          <td style="font-size:20px; font-weight:800; color:#0d2137;">8.4 <span class="pill pill-strong">STRONG</span></td>
-          <td style="font-size:20px; font-weight:800; color:#0d2137;">4.7 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td>Recommendation</td>
-          <td><span style="color:#1a7a4a; font-weight:700;">STRONG BUY</span></td>
-          <td><span style="color:#d84315; font-weight:700;">NEEDS MORE INFO</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Investment Comparison</div>
-    <table>
-      <thead>
-        <tr><th>Item</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Investment Range</td>
-          <td>$89,350 – $214,600</td>
-          <td>$199,000 – $424,000</td>
-        </tr>
-        <tr>
-          <td>Franchise Fee</td>
-          <td>$50,000</td>
-          <td>$45,000</td>
-        </tr>
-        <tr>
-          <td>Est. Payback Period</td>
-          <td>5.8 yrs</td>
-          <td>N/A</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Item 19 Financial Performance Disclosure</div>
-    <table>
-      <thead>
-        <tr><th>Disclosure</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Item 19 Status</td>
-          <td><span class="flag-present">✓ Present</span><br><small>Avg Revenue: $687,000</small></td>
-          <td><span class="flag-absent">✗ Not Provided</span><br><small>No franchisor-verified revenue data</small></td>
-        </tr>
-        <tr>
-          <td>Avg Unit Revenue</td>
-          <td>$687,000</td>
-          <td><span class="flag-absent">Not Disclosed</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="margin-top:12px; padding:10px 14px; background:#fff8e1; border-left:3px solid #f9a825; font-size:13px;">
-      <strong>Note:</strong> Radiant Waxing does not provide an Item 19 Financial Performance Representation.
-      This means no franchisor-verified revenue data exists. Any revenue projections for Radiant Waxing
-      should be treated as estimates only and validated through direct franchisee interviews.
+<div class="report-header">
+  <div class="header-inner">
+    <div class="header-meta">Layer8 Franchise Evaluation Suite &nbsp;|&nbsp; Franchise Comparison Report</div>
+    <div class="header-name">Brightway Insurance &nbsp;vs.&nbsp; Radiant Waxing</div>
+    <div class="header-category">Insurance / Financial Services</div>
+    <div class="header-date">Assessment Date: April 29, 2026</div>
+    <div class="score-row" style="gap:40px;">
+      <div style="text-align:center;">
+        <div class="big-score" style="color:#059669;">8.44</div>
+        <div style="font-size:12px;color:#94a3b8;">Brightway Insurance</div>
+      </div>
+      <div style="font-size:28px;color:#64748b;align-self:center;">vs</div>
+      <div style="text-align:center;">
+        <div class="big-score" style="color:#EA580C;">4.68</div>
+        <div style="font-size:12px;color:#94a3b8;">Radiant Waxing</div>
+      </div>
     </div>
   </div>
+  <div class="rec-banner" style="background:#065F46;">&#9654; Overall Winner: Brightway Insurance &nbsp;(8.44 vs 4.68)</div>
+</div>
 
-  <div class="card">
-    <div class="card-title">Domain-by-Domain Comparison</div>
-    <table>
-      <thead>
-        <tr><th>Domain</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td><strong>FDD Quality & Transparency</strong></td>
-          <td class="winner-cell">▲ 7.8 <span class="pill pill-adequate">ADEQUATE</span></td>
-          <td class="loser-cell">4.8 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td><strong>Unit Economics</strong></td>
-          <td class="winner-cell">▲ 9.4 <span class="pill pill-strong">STRONG</span></td>
-          <td class="loser-cell">3.4 <span class="pill pill-risk">HIGH RISK</span></td>
-        </tr>
-        <tr>
-          <td><strong>Franchisor Financial Health</strong></td>
-          <td class="winner-cell">▲ 8.4 <span class="pill pill-strong">STRONG</span></td>
-          <td class="loser-cell">5.4 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td><strong>Territorial Rights & Protection</strong></td>
-          <td class="winner-cell">▲ 8.6 <span class="pill pill-strong">STRONG</span></td>
-          <td class="loser-cell">4.6 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td><strong>Franchisee Satisfaction & Support</strong></td>
-          <td class="winner-cell">▲ 8.0 <span class="pill pill-strong">STRONG</span></td>
-          <td class="loser-cell">5.2 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td><strong>Exit & Transfer Provisions</strong></td>
-          <td class="winner-cell">▲ 8.0 <span class="pill pill-strong">STRONG</span></td>
-          <td class="loser-cell">4.8 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td><strong>Market & Competitive Position</strong></td>
-          <td class="winner-cell">▲ 8.2 <span class="pill pill-strong">STRONG</span></td>
-          <td class="loser-cell">5.8 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-        <tr>
-          <td><strong>Candidate Fit Assessment</strong></td>
-          <td class="winner-cell">▲ 7.6 <span class="pill pill-adequate">ADEQUATE</span></td>
-          <td class="loser-cell">5.4 <span class="pill pill-review">NEEDS REVIEW</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="margin-top:10px; font-size:12px; color:#888;">
-      ▲ = domain winner &nbsp;|&nbsp; scores shown with rating label
-    </div>
+<div class="section">
+  <div class="section-title">Executive Comparison</div>
+  <div class="exec-summary"><p>Brightway Insurance is the clear winner with a 3.76-point margin — a decisive difference across most evaluation dimensions. Brightway Insurance scores 8.44/10 (STRONG) versus Radiant Waxing at 4.68/10 (NEEDS REVIEW). The gap is driven primarily by Item 19 disclosure, where Brightway Insurance demonstrates transparency and verifiable financial performance. This is not a close call — the data strongly favors Brightway Insurance.</p></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Overall Score Comparison</div>
+  <table class="fdd-table">
+    <thead><tr><th>Metric</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Overall Score</strong></td>
+        <td style="font-size:20px;font-weight:800;color:#059669;">8.44 <span style="background:#ECFDF5;color:#065F46;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:700;">STRONG</span></td>
+        <td style="font-size:20px;font-weight:800;color:#EA580C;">4.68 <span style="background:#FEF3C7;color:#B45309;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:700;">NEEDS REVIEW</span></td>
+      </tr>
+      <tr>
+        <td>Recommendation</td>
+        <td style="color:#065F46;font-weight:700;">STRONG BUY</td>
+        <td style="color:#EA580C;font-weight:700;">NEEDS MORE INFO</td>
+      </tr>
+      <tr>
+        <td>Investment Range</td>
+        <td>$89,350 – $214,600</td>
+        <td>$199,000 – $424,000</td>
+      </tr>
+      <tr>
+        <td>Payback Period</td>
+        <td><strong>5.8 years</strong></td>
+        <td>Not calculable</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">Item 19 Financial Performance Disclosure</div>
+  <table class="fdd-table">
+    <thead><tr><th>Metric</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr></thead>
+    <tbody>
+      <tr><td>Item 19 Status</td><td><span style="color:#065F46;font-weight:700;">&#10003; Disclosed</span><br><small>$687,000 avg revenue</small><br><small>25.0% margin | 5.8 yr payback</small></td><td><span style="color:#DC2626;font-weight:700;">&#10007; Not Disclosed</span><br><small style="color:#DC2626;">No franchisor-verified revenue data</small></td></tr>
+      <tr>
+        <td>Avg Unit Revenue</td>
+        <td><strong>$687,000</strong> <span style='color:#065F46;font-size:11px;'>Verified</span></td>
+        <td><span style="color:#DC2626;">Not Disclosed</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:12px;padding:10px 14px;background:#FFFBEB;border-left:3px solid #C9A84C;font-size:13px;color:#92400E;">&#9888; Investment comparison is limited by Radiant Waxing's absence of Item 19. Brightway Insurance provides verified financial data; Radiant Waxing's figures are estimates only. This disclosure gap is a key differentiator in this comparison.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Domain-by-Domain Comparison</div>
+  <table class="fdd-table">
+    <thead><tr><th>Domain</th><th>Brightway Insurance</th><th>Radiant Waxing</th></tr></thead>
+    <tbody><tr><td><strong>Unit Economics</strong></td><td style="font-weight:800;"><span style="color:#065F46;font-size:15px;font-weight:800;">▲ 9.4</span> <span style="background:#ECFDF5;color:#065F46;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">STRONG</span></td><td style="font-weight:400;"><span style="color:#EA580C;font-size:15px;font-weight:800;">3.4</span> <span style="background:#FEE2E2;color:#EA580C;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">HIGH RISK</span></td></tr><tr><td><strong>Territorial Rights & Protection</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 8.6</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">STRONG</span></td><td style="font-weight:400;"><span style="color:#EA580C;font-size:15px;font-weight:800;">4.6</span> <span style="background:#FEE2E2;color:#EA580C;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr><tr><td><strong>Exit & Transfer Provisions</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 8.0</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">STRONG</span></td><td style="font-weight:400;"><span style="color:#EA580C;font-size:15px;font-weight:800;">4.8</span> <span style="background:#FEE2E2;color:#EA580C;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr><tr><td><strong>FDD Quality & Transparency</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 7.8</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">ADEQUATE</span></td><td style="font-weight:400;"><span style="color:#EA580C;font-size:15px;font-weight:800;">4.8</span> <span style="background:#FEE2E2;color:#EA580C;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr><tr><td><strong>Franchisor Financial Health</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 8.4</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">STRONG</span></td><td style="font-weight:400;"><span style="color:#B45309;font-size:15px;font-weight:800;">5.4</span> <span style="background:#FEF3C7;color:#B45309;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr><tr><td><strong>Franchisee Satisfaction & Support</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 8.0</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">STRONG</span></td><td style="font-weight:400;"><span style="color:#B45309;font-size:15px;font-weight:800;">5.2</span> <span style="background:#FEF3C7;color:#B45309;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr><tr><td><strong>Market & Competitive Position</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 8.2</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">STRONG</span></td><td style="font-weight:400;"><span style="color:#B45309;font-size:15px;font-weight:800;">5.8</span> <span style="background:#FEF3C7;color:#B45309;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr><tr><td><strong>Candidate Fit Assessment</strong></td><td style="font-weight:800;"><span style="color:#059669;font-size:15px;font-weight:800;">▲ 7.6</span> <span style="background:#D1FAE5;color:#059669;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">ADEQUATE</span></td><td style="font-weight:400;"><span style="color:#B45309;font-size:15px;font-weight:800;">5.4</span> <span style="background:#FEF3C7;color:#B45309;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;">NEEDS REVIEW</span></td></tr></tbody>
+  </table>
+  <div style="margin-top:8px;font-size:11px;color:#9CA3AF;">▲ = domain winner &nbsp;|&nbsp; domains ordered by score gap (largest gap first)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Domain Gap Analysis — Significant Differences (&gt;1.5 pts)</div>
+  <ul style="padding-left:20px;line-height:2.2;font-size:13px;color:#374151;"><li><strong>Unit Economics</strong> (9.4 vs 3.4): Brightway Insurance leads by 6.0 points — Brightway Insurance demonstrates stronger investment return metrics including payback period and disclosed profit margins.</li>
+<li><strong>Territorial Rights & Protection</strong> (8.6 vs 4.6): Brightway Insurance leads by 4.0 points — Brightway Insurance outperforms on the underlying data points for this domain.</li>
+<li><strong>Exit & Transfer Provisions</strong> (8.0 vs 4.8): Brightway Insurance leads by 3.2 points — Brightway Insurance outperforms on the underlying data points for this domain.</li>
+<li><strong>FDD Quality & Transparency</strong> (7.8 vs 4.8): Brightway Insurance leads by 3.0 points — Brightway Insurance provides Item 19 financial disclosure; Radiant Waxing does not — a fundamental transparency gap.</li>
+<li><strong>Franchisor Financial Health</strong> (8.4 vs 5.4): Brightway Insurance leads by 3.0 points — Brightway Insurance shows +45 net unit change vs. +31 — a stronger system growth signal.</li>
+<li><strong>Franchisee Satisfaction & Support</strong> (8.0 vs 5.2): Brightway Insurance leads by 2.8 points — Brightway Insurance franchisees report 8.2/10 satisfaction vs. 5.8/10 — a meaningful difference in actual operator experience.</li>
+<li><strong>Market & Competitive Position</strong> (8.2 vs 5.8): Brightway Insurance leads by 2.4 points — Brightway Insurance ranks #3 in category vs. #12 for Radiant Waxing — stronger brand recognition and market position.</li>
+<li><strong>Candidate Fit Assessment</strong> (7.6 vs 5.4): Brightway Insurance leads by 2.2 points — Brightway Insurance outperforms on the underlying data points for this domain.</li></ul>
+</div>
+
+<div class="section">
+  <div class="section-title">Key Decision Factors — Why Brightway Insurance Scores Higher</div>
+  <ul style="padding-left:20px;line-height:2.2;font-size:13px;color:#374151;"><li><strong>Unit Economics</strong> (9.4 vs 3.4): Brightway Insurance demonstrates stronger investment return metrics including payback period and disclosed profit margins.</li>
+<li><strong>Territorial Rights & Protection</strong> (8.6 vs 4.6): Brightway Insurance outperforms on the underlying data points for this domain.</li>
+<li><strong>Franchisor Financial Health</strong> (8.4 vs 5.4): Brightway Insurance shows +45 net unit change vs. +31 — a stronger system growth signal.</li></ul>
+</div>
+
+
+
+<div class="section">
+  <div class="section-title">Recommendation</div>
+  <div class="exec-summary">
+    <p>Based on the Layer8 Franchise Evaluation Suite scoring across 8 domains and 40 criteria, <strong>Brightway Insurance</strong> is the recommended opportunity with a 8.44-vs-4.68 score advantage.</p>
+    <p><strong>Brightway Insurance</strong> scores <strong>8.44/10</strong> (STRONG) — STRONG BUY. <strong>Radiant Waxing</strong> scores <strong>4.68/10</strong> (NEEDS REVIEW) — NEEDS MORE INFO.</p>
+    <p>The Item 19 disclosure gap is the single most important differentiator in this comparison. Brightway Insurance provides verified financial performance data; Radiant Waxing does not. A buyer cannot independently verify unit economics for the non-disclosing franchise without direct franchisee interviews.</p>
   </div>
+</div>
 
-  <div class="card">
-    <div class="card-title">Recommendation</div>
-    <p style="font-size:15px; line-height:1.8;">
-      Based on the Layer8 Franchise Evaluation Suite scoring across 8 domains and 40 criteria,
-      <strong>Brightway Insurance</strong> is the recommended opportunity.
-      <br><br>
-      <strong>Brightway Insurance</strong> scores <strong>8.4/10</strong> (STRONG) —
-      STRONG BUY.
-      <br>
-      <strong>Radiant Waxing</strong> scores <strong>4.7/10</strong> (NEEDS REVIEW) —
-      NEEDS MORE INFO.
-      <br><br>
-      Key differentiators: Brightway Insurance provides a verified Item 19 with <strong>$687,000</strong>
-      average unit revenue and an estimated <strong>5.8-year payback</strong>, versus
-      Radiant Waxing's no Item 19 disclosure and estimated <strong>None-year payback</strong>.
-      The unit economics gap is the primary driver of this recommendation.
-    </p>
-  </div>
-
-  
-    <div class="footer">
-      <strong>Layer8 Disclaimer:</strong> This report is produced by the Layer8 Franchise Evaluation Suite
-      using publicly available FDD data, third-party research, and proprietary scoring models. It is provided
-      for informational and consultative purposes only and does not constitute legal, financial, or investment
-      advice. Franchise investment involves significant risk. All prospective franchisees should review the
-      complete FDD with a qualified franchise attorney and consult a financial advisor before making any
-      investment decision. Layer8TechGroup makes no warranty as to the accuracy, completeness, or timeliness
-      of any FDD data presented herein. Past system performance does not guarantee future unit results.
-    </div>
-    
+<div class="report-footer">
+  <div class="footer-brand">Layer8 Tech Group &nbsp;|&nbsp; Franchise Evaluation Suite</div>
+  <div class="footer-url">franchise.layer8techgroup.com &nbsp;|&nbsp; layer8techgroup.com</div>
+  <div class="footer-disclaimer">This report is produced by the Layer8 Franchise Evaluation Suite for informational and consultative purposes only. It does not constitute legal, financial, or investment advice. Always obtain the current FDD directly from the franchisor and consult a qualified franchise attorney before making any investment decision. Generated: April 29, 2026</div>
+</div>
 </div>
 </body>
 </html>
