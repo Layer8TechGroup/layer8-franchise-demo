@@ -104,6 +104,12 @@ body {
 .step-title { font-size: 14px; font-weight: 700; color: #1e3a5f; margin-bottom: 4px; }
 .step-detail { font-size: 13px; color: #6B7280; line-height: 1.6; }
 
+/* ── Litigation callouts ── */
+.callout-amber { display: flex; gap: 14px; background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706; border-radius: 0 6px 6px 0; padding: 16px; margin-bottom: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-amber .callout-head { color: #92400E; }
+.callout-dark-red { display: flex; gap: 14px; background: #FEF2F2; border: 1px solid #FECACA; border-left: 4px solid #7F1D1D; border-radius: 0 6px 6px 0; padding: 16px; margin-bottom: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.callout-dark-red .callout-head { color: #7F1D1D; }
+
 /* ── FDD currency callout ── */
 .currency-callout { display: flex; gap: 10px; align-items: flex-start; padding: 12px 20px; font-size: 13px; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 .currency-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
@@ -134,9 +140,9 @@ body {
     <div class="header-meta">Layer8 Franchise Evaluation Suite &nbsp;|&nbsp; Franchise Opportunity Evaluation</div>
     <div class="header-name">Radiant Waxing</div>
     <div class="header-category">Beauty / Personal Care</div>
-    <div class="header-date">Assessment Date: April 29, 2026</div>
+    <div class="header-date">Assessment Date: May 01, 2026</div>
     <div class="score-row">
-      <div class="big-score" style="color:#EA580C;">4.68</div>
+      <div class="big-score" style="color:#EA580C;">4.71</div>
       <div class="score-meta">
         <div class="score-label-text" style="color:#EA580C;">NEEDS REVIEW</div>
         <div class="score-sub">out of 10.00 &nbsp;|&nbsp; 8 domains &nbsp;|&nbsp; 40 criteria</div>
@@ -183,7 +189,7 @@ body {
 <div class="section">
   <div class="section-title">&#167; 3 &nbsp; Executive Summary</div>
   <div class="exec-summary">
-    <p>Radiant Waxing scores 4.68/10 (NEEDS REVIEW), indicating significant risk factors that must be fully understood and addressed before making any investment decision.</p>
+    <p>Radiant Waxing scores 4.71/10 (NEEDS REVIEW), indicating significant risk factors that must be fully understood and addressed before making any investment decision.</p>
     <p>The highest-scoring dimension is <strong>Market & Competitive Position</strong> (5.8/10), though even the strongest domain has meaningful limitations. The primary area requiring attention before proceeding is <strong>Unit Economics</strong> (3.4/10), which represents a material risk to investment viability and warrants focused due diligence.</p>
     <p>Investment thesis: The absence of Item 19 means no franchisor-verified financial basis for this $199,000–$424,000 investment decision. All revenue projections must be sourced independently through franchisee interviews.</p>
   </div>
@@ -433,7 +439,7 @@ body {
           <div class="domain-title">FDD Quality & Transparency</div>
           <div class="domain-meta">
             <span class="domain-weight">15%</span>
-            <span class="domain-score-badge" style="background:#FEE2E2;color:#EA580C;">4.8 &nbsp;NEEDS REVIEW</span>
+            <span class="domain-score-badge" style="background:#FEF3C7;color:#B45309;">5.0 &nbsp;NEEDS REVIEW</span>
           </div>
         </div>
         <div class="domain-desc">Quality and completeness of FDD disclosure — the most important signal of franchisor integrity. Item 19 is scored at double weight.</div>
@@ -464,7 +470,7 @@ body {
           <tr>
             <td style="font-size:12px;font-weight:600;color:#374151;width:22%;">Litigation History (Items 3 & 4)</td>
             <td style="text-align:center;width:7%;">
-              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">9</span>
+              <span style="display:inline-block;padding:3px 8px;border-radius:6px;background:#ECFDF5;color:#065F46;font-weight:800;font-size:13px;">10</span>
             </td>
             <td style="font-size:12px;color:#374151;width:35%;">No litigation disclosed in Items 3 or 4. Clean legal record.</td>
             <td style="font-size:12px;color:#6B7280;width:36%;font-style:italic;">Clean record supports franchisor credibility and reduces legal risk exposure.</td>
@@ -760,22 +766,15 @@ body {
   </div>
 
   <div class="fdd-item-block">
-    <div class="fdd-item-header">Items 3 &amp; 4 &mdash; Litigation &amp; Bankruptcy</div>
-    <table class="fdd-table">
-      <thead><tr><th>Metric</th><th>Data</th><th>Layer8 Commentary</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>Litigation Disclosed</td>
-          <td><strong>0 matter(s)</strong> (none severity)</td>
-          <td>&#9989; Clean legal record</td>
-        </tr>
-        <tr>
-          <td>Bankruptcy History</td>
-          <td><strong>None disclosed</strong></td>
-          <td>&#9989; No bankruptcy history disclosed</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="fdd-item-header">Items 3 &amp; 4 &mdash; Litigation &amp; Bankruptcy &nbsp;<span style="font-weight:400;font-size:11px;opacity:0.8;">Categorized — weighted scoring applied</span></div>
+    
+    <div class="callout-green" style="margin:12px 0 0;">
+      <div class="callout-icon">&#10003;</div>
+      <div>
+        <div class="callout-head">Clean Litigation Record</div>
+        <div class="callout-body">No litigation disclosed — consistent with early-stage franchise system. Monitor as system matures.</div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="section">
@@ -1110,7 +1109,7 @@ body {
 </div>
 <div class="section">
   <div class="section-title">&#167; 11 &nbsp; Recommended Next Steps</div>
-  <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Action items based on Layer8 recommendation: <strong>NEEDS MORE INFO</strong> for Radiant Waxing (4.68/10).</p>
+  <p style="font-size:13px;color:#6B7280;margin-bottom:16px;">Action items based on Layer8 recommendation: <strong>NEEDS MORE INFO</strong> for Radiant Waxing (4.71/10).</p>
   <div class="next-steps-list">
       <div class="next-step">
         <div class="step-num">1</div>
@@ -1145,7 +1144,7 @@ body {
     All prospective franchisees should review the complete, current-year FDD with a qualified franchise attorney and consult
     a financial advisor before making any investment decision. Layer8TechGroup makes no warranty as to the accuracy,
     completeness, or timeliness of any FDD data presented herein. Past system performance does not guarantee future unit results.
-    Generated: April 29, 2026
+    Generated: May 01, 2026
   </div>
 </div>
 </div>
